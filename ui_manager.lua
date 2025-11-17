@@ -34,13 +34,32 @@ local function sanitizeMarkdownLine(line)
     if not line then
         return ""
     end
+
     local sanitized = line
-    sanitized = sanitized:gsub("%[([^%]]+)%]%([^%)]+)", "%1") -- inline links
-    sanitized = sanitized:gsub("!%[([^%]]*)%]%([^%)]+)", "%1") -- images
-    sanitized = sanitized:gsub("%[([^%]]+)%]%[[^%]]+%]", "%1") -- reference links
-    sanitized = sanitized:gsub("`([^`]+)`", "%1") -- inline code
-    sanitized = sanitized:gsub("%*%*([^%*]+)%*%*", "%1") -- bold markers
+    -- Inline links: [text](url)
+    sanitized = sanitized:gsub("%b[]%b()", function(match)
+        local label = match:match("%[(.-)%]%(")
+        return label or ""
+    end)
+
+    -- Markdown images: ![alt](url) → strip completely
+    sanitized = sanitized:gsub("!%b[]%b()", "")
+
+    -- HTML image tags: <img ...> → strip completely
+    sanitized = sanitized:gsub("<img.-?>", "")
+
+    -- Reference links: [text][ref]
+    sanitized = sanitized:gsub("%b[]%[%w-%]", function(match)
+        local label = match:match("%[(.-)%]%[")
+        return label or ""
+    end)
+
+    -- Inline code
+    sanitized = sanitized:gsub("`([^`]+)`", "%1")
+    -- Bold markers
+    sanitized = sanitized:gsub("%*%*([^%*]+)%*%*", "%1")
     sanitized = sanitized:gsub("__([^_]+)__", "%1")
+
     return sanitized
 end
 

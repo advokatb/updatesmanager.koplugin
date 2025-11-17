@@ -1,6 +1,20 @@
 # Changelog
 
+## [1.0.4] - 2025-11-18
+
+### Fixed
+- Prevented the changelog popup from crashing or showing raw `<img …>` tags by hardening markdown sanitizing (safer pattern matching and full removal of markdown/HTML images).
+
 # Changelog
+
+## [1.0.3] - 2025-11-17
+
+### Added
+- Included `AnnotationSync.koplugin` in the default plugin repository list. ([#5](https://github.com/advokatb/updatesmanager.koplugin/pull/5))
+
+### Fixed
+- Prevented the **View Settings** screen from crashing by ensuring the dialog has the imports it needs before rendering descriptions. ([#7](https://github.com/advokatb/updatesmanager.koplugin/pull/7))
+- Corrected the README link to the Releases page so users land on the right download location. ([#6](https://github.com/advokatb/updatesmanager.koplugin/pull/6))
 
 ## [1.0.2] - 2025-11-17
 
