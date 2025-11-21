@@ -1,11 +1,18 @@
 # Changelog
 
+## [1.0.5] - 2025-11-18
+
+### Added
+- Added `prashanthglen/kojustifystatusbar` to default patch repositories (Justify status bar patch).
+- Added `clarainna/KOReader-Patches` to default patch repositories.
+
+### Changed
+- Commented out plugin repositories without proper releases.
+
 ## [1.0.4] - 2025-11-18
 
 ### Fixed
 - Prevented the changelog popup from crashing or showing raw `<img …>` tags by hardening markdown sanitizing (safer pattern matching and full removal of markdown/HTML images).
-
-# Changelog
 
 ## [1.0.3] - 2025-11-17
 
