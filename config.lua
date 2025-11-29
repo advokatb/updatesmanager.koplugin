@@ -82,6 +82,13 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "Clarainna's patches",
     },
+    {
+        owner = "whatsnewsisyphus",
+        repo = "koreader-patches",
+        branch = "main",
+        path = "",
+        description = "Whatsnewsisyphus's patches",
+    },
 }
 
 -- Default list of plugin repositories
@@ -161,6 +168,21 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "AnnotationSync.koplugin",
         description = "Sync annotations between devices",
     },
+    {
+        owner = "agaragou",
+        repo = "illustrations.koplugin",
+        description = "Illustrations plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "tbrplanner.koplugin",
+        description = "TBR Planner plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "nonogram.koplugin",
+        description = "Nonogram plugin",
+    },
     -- {
     --     owner = "joshuacant",
     --     repo = "ProjectTitle",
@@ -206,6 +228,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "Evgeniy-94",
     --     repo = "TelegramDownloader.koplugin",
     --     description = "Telegram Downloader plugin",
+    -- },
+    -- {
+    --     owner = "greywolf1499",
+    --     repo = "opds_plus.koplugin",
+    --     description = "OPDS Plus plugin",
     -- },
 }
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.6] - 2025-01-XX
+
+### Added
+- Added `whatsnewsisyphus/koreader-patches` to default patch repositories.
+- Added `agaragou/illustrations.koplugin` to default plugin repositories.
+- Added `omer-faruq/tbrplanner.koplugin` to default plugin repositories.
+- Added `omer-faruq/nonogram.koplugin` to default plugin repositories.
+
 ## [1.0.5] - 2025-11-18
 
 ### Added
@@ -7,7 +15,9 @@
 - Added `clarainna/KOReader-Patches` to default patch repositories.
 
 ### Changed
-- Commented out plugin repositories without proper releases.
+- Commented out plugin repositories without proper releases: `imagebookmarks.koplugin`, `weather.koplugin`, `koreader-booknotes-plugin`, `koreader-xray-plugin`, `crashlog.koplugin`, `multiline-toc-koreader`, `TelegramDownloader.koplugin`.
+- Reorganized `config.lua`: moved all commented-out repositories to the end of the list for better maintainability.
+- Updated README: removed commented-out repositories from the supported repositories list.
 
 ## [1.0.4] - 2025-11-18
 
