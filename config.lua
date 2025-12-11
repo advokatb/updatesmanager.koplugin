@@ -153,11 +153,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
         description = "Updates Manager plugin",
     },
     {
-        owner = "marinov752",
-        repo = "emailtokoreader.koplugin",
-        description = "Email to KOReader plugin",
-    },
-    {
         owner = "omer-faruq",
         repo = "memobook.koplugin",
         description = "Memo Book plugin",
@@ -213,11 +208,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
         description = "Sync annotations between devices",
     },
     {
-        owner = "agaragou",
-        repo = "illustrations.koplugin",
-        description = "Illustrations plugin",
-    },
-    {
         owner = "omer-faruq",
         repo = "tbrplanner.koplugin",
         description = "TBR Planner plugin",
@@ -237,6 +227,12 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "readest",
         asset_pattern = "*.koplugin.zip",
         description = "Readest ebook reader plugin",
+    },
+    {
+        owner = "OGKevin",
+        repo = "kobo.koplugin",
+        asset_pattern = "*.koplugin.zip",
+        description = "Kobo plugin",
     },
     -- {
     --     owner = "joshuacant",
@@ -300,11 +296,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Comic Reader plugin",
     -- },
     -- {
-    --     owner = "OGKevin",
-    --     repo = "kobo.koplugin",
-    --     description = "Kobo plugin",
-    -- },
-    -- {
     --     owner = "KORComic",
     --     repo = "comicmeta.koplugin",
     --     description = "Comic Meta plugin",
@@ -328,6 +319,16 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "juancoquet",
     --     repo = "highlights-screensaver",
     --     description = "Highlights Screensaver plugin",
+    -- },
+    -- {
+    --     owner = "marinov752",
+    --     repo = "emailtokoreader.koplugin",
+    --     description = "Email to KOReader plugin",
+    -- },
+    -- {
+    --     owner = "agaragou",
+    --     repo = "illustrations.koplugin",
+    --     description = "Illustrations plugin",
     -- },
 }
 

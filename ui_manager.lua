@@ -631,17 +631,28 @@ function UIManager_Updates:showUpdateResults(successful, failed)
     
     local texts = {}
     
-    -- Process successful patches
+    -- Process successful patches and plugins
     if successful and type(successful) == "table" then
         local success_list = {}
         for i, patch in ipairs(successful) do
             if patch and type(patch) == "table" then
-                local patch_name = patch.name or patch.filename or "unknown"
+                local patch_name = nil
+                
+                -- For plugins, prefer fullname over name
+                if patch.fullname then
+                    patch_name = patch.fullname
+                elseif patch.name then
+                    patch_name = patch.name
+                elseif patch.filename then
+                    patch_name = patch.filename
+                end
+                
                 -- If we don't have name/filename, try to extract from path
                 if (not patch_name or patch_name == "unknown") and patch.path then
                     patch_name = patch.path:match("([^/]+)$") or patch.path
                 end
-                -- Remove .lua extension if present
+                
+                -- Remove .lua extension if present (for patches)
                 if patch_name then
                     patch_name = patch_name:gsub("%.lua$", "")
                 else
@@ -658,17 +669,28 @@ function UIManager_Updates:showUpdateResults(successful, failed)
         end
     end
     
-    -- Process failed patches
+    -- Process failed patches and plugins
     if failed and type(failed) == "table" then
         local failed_list = {}
         for i, patch in ipairs(failed) do
             if patch and type(patch) == "table" then
-                local patch_name = patch.name or patch.filename or "unknown"
+                local patch_name = nil
+                
+                -- For plugins, prefer fullname over name
+                if patch.fullname then
+                    patch_name = patch.fullname
+                elseif patch.name then
+                    patch_name = patch.name
+                elseif patch.filename then
+                    patch_name = patch.filename
+                end
+                
                 -- If we don't have name/filename, try to extract from path
                 if (not patch_name or patch_name == "unknown") and patch.path then
                     patch_name = patch.path:match("([^/]+)$") or patch.path
                 end
-                -- Remove .lua extension if present
+                
+                -- Remove .lua extension if present (for patches)
                 if patch_name then
                     patch_name = patch_name:gsub("%.lua$", "")
                 else
