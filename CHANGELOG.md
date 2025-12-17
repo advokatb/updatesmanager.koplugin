@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.2.1] - 2025-12-17
+
+### Changed
+- Re-enabled `agaragou/illustrations.koplugin` in default plugin repositories.
+
 ## [1.2.0] - 2025-12-XX
 
 ### Added

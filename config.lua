@@ -218,6 +218,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
         description = "Nonogram plugin",
     },
     {
+        owner = "agaragou",
+        repo = "illustrations.koplugin",
+        description = "Illustrations plugin",
+    },
+    {
         owner = "Evgeniy-94",
         repo = "TelegramDownloader.koplugin",
         description = "Telegram Downloader plugin",
@@ -324,11 +329,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "marinov752",
     --     repo = "emailtokoreader.koplugin",
     --     description = "Email to KOReader plugin",
-    -- },
-    -- {
-    --     owner = "agaragou",
-    --     repo = "illustrations.koplugin",
-    --     description = "Illustrations plugin",
     -- },
 }
 
