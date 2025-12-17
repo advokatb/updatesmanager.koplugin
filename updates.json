@@ -2,9 +2,9 @@
   "plugin": {
     "name": "updatesmanager",
     "version": "1.2.0",
-    "latest_version": "1.1.0",
+    "latest_version": "1.2.0",
     "description": "Manage updates for patches and plugins GitHub repositories.",
-    "release_url": "https://github.com/advokatb/updatesmanager.koplugin/releases/tag/v1.1.0
+    "release_url": "https://github.com/advokatb/updatesmanager.koplugin/releases/tag/v1.2.0
 https://github.com/apps/github-actions
 https://github.com/apps/github-actions"
   }
