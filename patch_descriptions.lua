@@ -1,9 +1,8 @@
 --[[--
 Patch Descriptions Manager
 Handles loading and managing patch descriptions from multiple sources:
-1. updates.json from repositories (if available)
-2. Comments in patch files
-3. Local user-edited descriptions
+1. Comments in patch files
+2. Local user-edited descriptions
 ]]--
 
 local DataStorage = require("datastorage")
@@ -103,42 +102,15 @@ function PatchDescriptions.parseFromComments(patch_content)
     return nil
 end
 
--- Load updates.json from repository
-function PatchDescriptions.loadFromUpdatesJson(owner, repo, branch, path)
-    -- Try to get updates.json from repository root or specified path
-    local updates_json_path = ""
-    if path and path ~= "" then
-        updates_json_path = path .. "/updates.json"
-    else
-        updates_json_path = "updates.json"
-    end
-    
-    -- This will be called from main.lua with httpGet function
-    -- For now, return nil - will be implemented in main.lua
-    return nil
-end
-
--- Get description for a patch (priority: local > updates.json > comments)
-function PatchDescriptions.getDescription(patch_name, repo_patch, patch_content, updates_json_data)
+-- Get description for a patch (priority: local > comments)
+function PatchDescriptions.getDescription(patch_name, repo_patch, patch_content)
     -- Priority 1: Local user-edited description
     local local_descriptions = PatchDescriptions.loadLocalDescriptions()
     if local_descriptions[patch_name] and local_descriptions[patch_name] ~= "" then
         return local_descriptions[patch_name]
     end
     
-    -- Priority 2: updates.json from repository
-    if updates_json_data and updates_json_data.patches then
-        for _, patch_info in ipairs(updates_json_data.patches) do
-            local patch_key = patch_info.name or patch_info.filename
-            if patch_key and patch_key:gsub("%.lua$", "") == patch_name then
-                if patch_info.description and patch_info.description ~= "" then
-                    return patch_info.description
-                end
-            end
-        end
-    end
-    
-    -- Priority 3: Parse from patch file comments
+    -- Priority 2: Parse from patch file comments
     if patch_content then
         local comment_desc = PatchDescriptions.parseFromComments(patch_content)
         if comment_desc and comment_desc ~= "" then

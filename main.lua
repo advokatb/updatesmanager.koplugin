@@ -11,7 +11,7 @@ local WidgetContainer = require("ui/widget/container/widgetcontainer")
 local logger = require("logger")
 local Trapper = require("ui/trapper")
 
-local Config = require("config")
+local Config = require("updatesmanager_config")
 local PatchManager = require("patch_manager")
 local PluginManager = require("plugin_manager")
 local RepositoryManager = require("repository_manager")
@@ -28,7 +28,9 @@ local function getGitHubToken()
         return cached_token
     end
     
-    cached_token = Config.loadGitHubToken()
+    if Config and Config.loadGitHubToken then
+        cached_token = Config.loadGitHubToken()
+    end
     return cached_token
 end
 
@@ -89,7 +91,7 @@ function UpdatesManager:checkForUpdates(force_refresh)
 
         -- Pre-load ALL modules before subprocess (they won't load in subprocess due to paths)
         -- Load all required modules that work in subprocess
-        local Config = require("config")
+        local Config = require("updatesmanager_config")
         local Version = require("version")
         local logger = require("logger")
         local lfs = require("libs/libkoreader-lfs")
@@ -359,26 +361,6 @@ function UpdatesManager:checkForUpdates(force_refresh)
             end
         end
 
-        -- Try to load updates.json from repository
-        local function loadUpdatesJson(owner, repo, branch, path)
-            local updates_json_path = ""
-            if path and path ~= "" then
-                updates_json_path = path .. "/updates.json"
-            else
-                updates_json_path = "updates.json"
-            end
-
-            rateLimit()
-            local content = getFileContent(owner, repo, branch, updates_json_path)
-            if content then
-                local ok, data = pcall(json.decode, content)
-                if ok and data then
-                    return data
-                end
-            end
-            return nil
-        end
-
         local function scanRepositoryForPatches(repo_config, compute_md5_for_local_only)
             compute_md5_for_local_only = compute_md5_for_local_only or {}
             local owner = repo_config.owner
@@ -386,23 +368,9 @@ function UpdatesManager:checkForUpdates(force_refresh)
             local branch = repo_config.branch or "main"
             local path = repo_config.path or ""
 
-
-            -- Try to load updates.json first
-            local updates_json = loadUpdatesJson(owner, repo, branch, path)
-            local updates_json_map = {}
-            if updates_json and updates_json.patches then
-                for _, patch_info in ipairs(updates_json.patches) do
-                    local patch_key = patch_info.name or patch_info.filename
-                    if patch_key then
-                        patch_key = patch_key:gsub("%.lua$", "")
-                        updates_json_map[patch_key] = patch_info
-                    end
-                end
-            end
-
             local files = getRepositoryFiles(owner, repo, branch, path)
             if not files then
-                return {}, updates_json_map
+                return {}
             end
 
             local patches = {}
@@ -424,22 +392,8 @@ function UpdatesManager:checkForUpdates(force_refresh)
                         repo_url = string.format("https://github.com/%s/%s", owner, repo),
                     }
 
-                    -- Load metadata from updates.json if available
-                    if updates_json_map[patch_name] then
-                        patch_data.description = updates_json_map[patch_name].description
-                        patch_data.author = updates_json_map[patch_name].author
-                        patch_data.version = updates_json_map[patch_name].version
-                        -- Use MD5 from updates.json if available
-                        if updates_json_map[patch_name].md5 then
-                            patch_data.md5 = updates_json_map[patch_name].md5
-                            logger.dbg("UpdatesManager: Using MD5 from updates.json for:", patch_name)
-                        end
-                    end
-
-                    -- Compute MD5 on-the-fly only if:
-                    -- 1. MD5 not available from updates.json
-                    -- 2. Patch exists locally (to speed up comparison)
-                    if not patch_data.md5 and compute_md5_for_local_only[patch_name] then
+                    -- Compute MD5 on-the-fly only if patch exists locally (to speed up comparison)
+                    if compute_md5_for_local_only[patch_name] then
                         rateLimit()
                         local repo_content = getFileContent(owner, repo, branch, file.path)
                         if repo_content then
@@ -468,7 +422,7 @@ function UpdatesManager:checkForUpdates(force_refresh)
                 end
             end
 
-            return patches, updates_json_map
+            return patches
         end
 
         local function scanLocalPatches()
@@ -562,7 +516,7 @@ function UpdatesManager:checkForUpdates(force_refresh)
 
                     rateLimit() -- Add delay to avoid rate limiting
                     -- Only compute MD5 for patches that exist locally
-                    local patches, updates_json_map = scanRepositoryForPatches(repo_config, local_patch_names)
+                    local patches = scanRepositoryForPatches(repo_config, local_patch_names)
 
                     -- Check if we got rate limited
                     if not patches and rate_limit_count > 0 then
@@ -877,6 +831,10 @@ function UpdatesManager:checkForUpdates(force_refresh)
         end
 
         -- Run in subprocess to avoid blocking UI
+        -- Ensure processing_msg exists before using it as trap_widget
+        if not UIManager_Updates.processing_msg then
+            UIManager_Updates:showProcessing(_("Checking for updates..."))
+        end
         local trap_widget = UIManager_Updates.processing_msg
         local completed, result = Trapper:dismissableRunInSubprocess(function()
             -- Create progress callback that writes to file
@@ -1171,6 +1129,10 @@ function UpdatesManager:installUpdates(updates)
         end)
     end
 
+    -- Ensure processing_msg exists before using it as trap_widget
+    if not UIManager_Updates.processing_msg then
+        UIManager_Updates:showProcessing(_("Installing updates..."))
+    end
     local trap_widget = UIManager_Updates.processing_msg
     local completed, results = Trapper:dismissableRunInSubprocess(function()
         for i, update in ipairs(updates) do
@@ -1227,7 +1189,7 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
     local socket = require("socket")
     local Device = require("device")
     local Archiver = require("ffi/archiver")
-    local Config = require("config")
+    local Config = require("updatesmanager_config")
 
     -- Inline HTTP functions
     local function downloadFile(url, local_path, headers)
@@ -1403,6 +1365,10 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
         end)
     end
 
+    -- Ensure processing_msg exists before using it as trap_widget
+    if not UIManager_Updates.processing_msg then
+        UIManager_Updates:showProcessing(_("Installing plugin updates..."))
+    end
     local trap_widget = UIManager_Updates.processing_msg
     local completed, results = Trapper:dismissableRunInSubprocess(function()
         for i, update in ipairs(plugin_updates) do
@@ -1443,7 +1409,7 @@ end
 -- Load list of ignored patches from file
 local function loadIgnoredPatches()
     local ignored = {}
-    local Config = require("config")
+    local Config = require("updatesmanager_config")
     local ignored_file = Config.IGNORED_PATCHES_FILE
 
     local file = io.open(ignored_file, "r")
@@ -1469,7 +1435,7 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
         UIManager_Updates:showProcessing(_("Checking for patch updates..."))
 
         -- Pre-load ALL modules before subprocess
-        local Config = require("config")
+        local Config = require("updatesmanager_config")
         local logger = require("logger")
         local lfs = require("libs/libkoreader-lfs")
         local md5 = require("ffi/MD5")
@@ -1629,24 +1595,6 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
             end
         end
 
-        local function loadUpdatesJson(owner, repo, branch, path)
-            local updates_json_path = ""
-            if path and path ~= "" then
-                updates_json_path = path .. "/updates.json"
-            else
-                updates_json_path = "updates.json"
-            end
-
-            local content = getFileContent(owner, repo, branch, updates_json_path)
-            if content then
-                local ok, data = pcall(json.decode, content)
-                if ok and data then
-                    return data
-                end
-            end
-            return nil
-        end
-
         local function scanRepositoryForPatches(repo_config, compute_md5_for_local_only)
             compute_md5_for_local_only = compute_md5_for_local_only or {}
             local owner = repo_config.owner
@@ -1654,21 +1602,9 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
             local branch = repo_config.branch or "main"
             local path = repo_config.path or ""
 
-            local updates_json = loadUpdatesJson(owner, repo, branch, path)
-            local updates_json_map = {}
-            if updates_json and updates_json.patches then
-                for _, patch_info in ipairs(updates_json.patches) do
-                    local patch_key = patch_info.name or patch_info.filename
-                    if patch_key then
-                        patch_key = patch_key:gsub("%.lua$", "")
-                        updates_json_map[patch_key] = patch_info
-                    end
-                end
-            end
-
             local files = getRepositoryFiles(owner, repo, branch, path)
             if not files then
-                return {}, updates_json_map
+                return {}
             end
 
             local patches = {}
@@ -1689,22 +1625,8 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
                         repo_url = string.format("https://github.com/%s/%s", owner, repo),
                     }
 
-                    -- Load metadata from updates.json if available
-                    if updates_json_map[patch_name] then
-                        patch_data.description = updates_json_map[patch_name].description
-                        patch_data.author = updates_json_map[patch_name].author
-                        patch_data.version = updates_json_map[patch_name].version
-                        -- Use MD5 from updates.json if available
-                        if updates_json_map[patch_name].md5 then
-                            patch_data.md5 = updates_json_map[patch_name].md5
-                            logger.dbg("UpdatesManager: Using MD5 from updates.json for:", patch_name)
-                        end
-                    end
-
-                    -- Compute MD5 on-the-fly only if:
-                    -- 1. MD5 not available from updates.json
-                    -- 2. Patch exists locally (to speed up comparison)
-                    if not patch_data.md5 and compute_md5_for_local_only[patch_name] then
+                    -- Compute MD5 on-the-fly only if patch exists locally (to speed up comparison)
+                    if compute_md5_for_local_only[patch_name] then
                         rateLimit()
                         local repo_content = getFileContent(owner, repo, branch, file.path)
                         if repo_content then
@@ -1732,7 +1654,7 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
                 end
             end
 
-            return patches, updates_json_map
+            return patches
         end
 
         local function scanLocalPatches()
@@ -1818,7 +1740,7 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
                     progress_callback(T(_("Scanning repository %1/%2: %3"), i, total_repos, repo_name))
 
                     rateLimit()
-                    local patches, updates_json_map = scanRepositoryForPatches(repo_config, local_patch_names)
+                    local patches = scanRepositoryForPatches(repo_config, local_patch_names)
 
                     if not patches and rate_limit_count > 0 then
                         rate_limit_count = rate_limit_count + 1
@@ -2067,6 +1989,10 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
             end)
         end
 
+        -- Ensure processing_msg exists before using it as trap_widget
+        if not UIManager_Updates.processing_msg then
+            UIManager_Updates:showProcessing(_("Checking for patch updates..."))
+        end
         local trap_widget = UIManager_Updates.processing_msg
         local completed, result = Trapper:dismissableRunInSubprocess(function()
             local function progressCallback(text)
@@ -2115,7 +2041,7 @@ function UpdatesManager:checkForPluginUpdates(force_refresh)
         UIManager_Updates:showProcessing(_("Checking for plugin updates..."))
 
         -- Pre-load modules
-        local Config = require("config")
+        local Config = require("updatesmanager_config")
         local logger = require("logger")
         local http = require("socket/http")
         local ltn12 = require("ltn12")
@@ -2255,6 +2181,10 @@ function UpdatesManager:checkForPluginUpdates(force_refresh)
             end)
         end
 
+        -- Ensure processing_msg exists before using it as trap_widget
+        if not UIManager_Updates.processing_msg then
+            UIManager_Updates:showProcessing(_("Checking for plugin updates..."))
+        end
         local trap_widget = UIManager_Updates.processing_msg
         local completed, result = Trapper:dismissableRunInSubprocess(function()
             local function progressCallback(text)
@@ -2266,6 +2196,7 @@ function UpdatesManager:checkForPluginUpdates(force_refresh)
             end
 
             -- Scan installed plugins
+            local PluginManager = require("plugin_manager")
             local installed_plugins = PluginManager.scanInstalledPlugins()
             local plugin_repos = self.repositories.plugins or {}
 
@@ -2334,7 +2265,7 @@ end
 -- Show repository settings
 function UpdatesManager:showRepositorySettings()
     -- Show info about repository configuration
-    local Config = require("config")
+    local Config = require("updatesmanager_config")
     local json = require("json")
     local lfs = require("libs/libkoreader-lfs")
 

@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.3] - 2025-12-23
+
+### Fixed
+- **Subprocess stability**: Fixed "unwrapped dismissableRunInSubprocess()" warnings by ensuring `processing_msg` widget exists before using it as `trap_widget`
+  - Added checks to create `processing_msg` if it doesn't exist before all `dismissableRunInSubprocess` calls
+  - Prevents fallback to blocking in-process execution mode
+
+### Changed
+- Updated plugin and patch repository lists in default configuration
+
 ## [1.3.2] - 2025-12-23
 
 - Revert Install Plugins feature till I find a proper solution to avoid crashes

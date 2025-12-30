@@ -13,7 +13,7 @@ local socketutil = require("socketutil")
 local socket = require("socket")
 
 local Utils = {}
-local Config = require("plugins.updatesmanager.koplugin.config")
+local Config = require("updatesmanager_config")
 
 -- Cache for GitHub token (loaded once per session)
 local cached_token = nil

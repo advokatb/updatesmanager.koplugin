@@ -400,15 +400,14 @@ function UIManager_Updates:showPatchDetails(update)
     local repo_url = repo_patch.repo_url or ""
     local size = repo_patch.size or local_patch.size or 0
     
-    -- Get description (priority: local > updates.json > comments)
+    -- Get description (priority: local > comments)
     local description = PatchDescriptions.getDescription(
         patch_name,
         repo_patch,
-        update.repo_content,
-        nil -- updates_json_data would be passed if available
+        update.repo_content
     )
     
-    -- If description from updates.json, use it
+    -- If description from repo_patch, use it
     if not description and repo_patch.description then
         description = repo_patch.description
     end

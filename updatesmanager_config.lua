@@ -1,7 +1,7 @@
 --[[--
 Configuration for Updates Manager plugin
 Contains repository lists and settings
-]] --
+]]--
 
 local DataStorage = require("datastorage")
 local json = require("json")
@@ -124,6 +124,34 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "0zd3m1r patches",
     },
+    {
+        owner = "gilgulgamesh",
+        repo = "koreader-patches",
+        branch = "main",
+        path = "",
+        description = "Gilgulgamesh's patches",
+    },
+    {
+        owner = "bartimeausprime",
+        repo = "koreaderpatches",
+        branch = "main",
+        path = "",
+        description = "Bartimeausprime's patches",
+    },
+    {
+        owner = "nahuelpucciarelli",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "Nahuelpucciarelli's patches",
+    },
+    {
+        owner = "dxvgs",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "Dxvgs's patches",
+    },
 }
 
 -- Commented out patch repositories (no proper releases or structure)
@@ -239,6 +267,52 @@ Config.DEFAULT_PLUGIN_REPOS = {
         asset_pattern = "*.koplugin.zip",
         description = "Kobo plugin",
     },
+    {
+        owner = "oleasteo",
+        repo = "koreader-screenlockpin",
+        description = "Screen Lock PIN plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "notificationlistener.koplugin",
+        description = "Notification Listener plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "ankiviewer.koplugin",
+        description = "Anki Viewer plugin",
+    },
+    {
+        owner = "markleenders",
+        repo = "stopwatchtimer.koplugin",
+        description = "Stopwatch Timer plugin",
+    },
+    {
+        owner = "DenisovichDev",
+        repo = "randomquote.koplugin",
+        description = "Random Quote plugin",
+    },
+    {
+        owner = "agaragou",
+        repo = "errol.koplugin",
+        description = "Errol plugin",
+    },
+    {
+        owner = "DeclanChidlow",
+        repo = "KOReader-Jellyfin-Plugin",
+        description = "Jellyfin plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "applauncher.koplugin",
+        description = "App Launcher plugin",
+    },
+    {
+        owner = "tachibana-shin",
+        repo = "rakuyomi",
+        asset_pattern = "*kindle*.zip",
+        description = "Rakuyomi plugin (Kindle build)",
+    },
     -- {
     --     owner = "joshuacant",
     --     repo = "ProjectTitle",
@@ -329,6 +403,61 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "marinov752",
     --     repo = "emailtokoreader.koplugin",
     --     description = "Email to KOReader plugin",
+    -- },
+    -- {
+    --     owner = "odrling",
+    --     repo = "connections.koplugin",
+    --     description = "NYT Connections game plugin",
+    -- },
+    -- {
+    --     owner = "ebanDev",
+    --     repo = "iconschanger.koplugin",
+    --     description = "Icon Pack Changer plugin",
+    -- },
+    -- {
+    --     owner = "Ajatt-Tools",
+    --     repo = "anki.koplugin",
+    --     description = "Anki integration plugin",
+    -- },
+    -- {
+    --     owner = "peterstamps",
+    --     repo = "KOReader_MyWebDavPlugin",
+    --     description = "WebDAV plugin",
+    -- },
+    -- {
+    --     owner = "roygbyte",
+    --     repo = "crossword.koplugin",
+    --     description = "Crossword puzzle plugin",
+    -- },
+    -- {
+    --     owner = "gitalexcampos",
+    --     repo = "koreader-Highlight-Sync",
+    --     description = "Highlight Sync plugin",
+    -- },
+    -- {
+    --     owner = "Lalocaballero",
+    --     repo = "readmastery.koplugin",
+    --     description = "Read Mastery plugin",
+    -- },
+    -- {
+    --     owner = "xconny",
+    --     repo = "Koreader-Senet",
+    --     description = "Senet game plugin",
+    -- },
+    -- {
+    --     owner = "xconny",
+    --     repo = "Koreader-Backgammon",
+    --     description = "Backgammon games plugin",
+    -- },
+    -- {
+    --     owner = "Shac0x",
+    --     repo = "Maximum-koreader",
+    --     description = "Maximum manga zoom plugin",
+    -- },
+    -- {
+    --     owner = "iamnotwassim",
+    --     repo = "focusruler",
+    --     description = "Focus Ruler plugin",
     -- },
 }
 

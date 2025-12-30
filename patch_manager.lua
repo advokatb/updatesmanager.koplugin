@@ -3,7 +3,7 @@ Patch Manager for Updates Manager
 Handles local patch scanning, update checking, and installation
 ]]--
 
-local Config = require("config")
+local Config = require("updatesmanager_config")
 local RepositoryManager = require("repository_manager")
 local Version = require("version")
 local logger = require("logger")

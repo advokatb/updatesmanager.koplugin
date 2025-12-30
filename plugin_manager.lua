@@ -51,7 +51,7 @@ function PluginManager.scanInstalledPlugins(include_defaults)
     local plugins_dir = PluginManager.PLUGINS_DIR
     
     -- Load default plugins list
-    local Config = require("config")
+    local Config = require("updatesmanager_config")
     local default_plugins_map = {}
     if not include_defaults then
         for _, default_name in ipairs(Config.DEFAULT_PLUGINS or {}) do

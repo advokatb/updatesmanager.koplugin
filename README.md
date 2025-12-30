@@ -18,7 +18,6 @@ Updates Manager is a plugin for KOReader that helps you manage updates for patch
 - **MD5 Verification**: Validates file integrity using MD5 checksums
 - **Patch Descriptions**: Automatic extraction from comments, local editing
 - **Plugin Version Management**: Automatic version comparison for plugins
-- **Install New Plugins**: Install plugins from default repositories that are not yet installed
 - **Network Management**: Automatic Wi-Fi connection handling
 - **Error Handling**: Graceful handling of network errors and API limits
 
@@ -49,7 +48,6 @@ The plugin menu is organized into three main sections:
 - **Plugins**: Manage plugin updates
   - Check for Updates
   - Force Refresh
-  - Install New Plugins
   - Installed Plugins
 - **Settings**: Configuration options
   - Repository Settings
@@ -162,8 +160,8 @@ You can create a pull request to add your repository to the plugin's default rep
 3. Create a pull request with a description of your patches repository
 4. Your PR will be reviewed and merged, making your patches available to all users
 
-<a id="patch-descriptions-from-comments"></a>
-#### Patch Descriptions from Comments
+<a id="patch-descriptions"></a>
+#### Patch Descriptions
 
 The plugin automatically extracts descriptions from comments at the beginning of patch files:
 
@@ -191,7 +189,7 @@ Patch descriptions are loaded in the following priority order:
    - Stored in `KOReader/settings/updatesmanager_patch_descriptions.json`
    - Can be edited through the plugin UI
 
-2. **Comments in patch files** (fallback)
+2. **Comments in patch files** (lowest priority)
    - Parsed from comment lines at the beginning of patch files
 
 ---
@@ -221,25 +219,6 @@ Patch descriptions are loaded in the following priority order:
 3. Tap on a plugin to see detailed information (version, description, path)
 
 **Note**: Default KOReader plugins (like `archiveviewer`, `autodim`, etc.) are hidden from this list as they are updated with KOReader itself.
-
-<a id="installing-new-plugins"></a>
-#### Installing New Plugins
-
-You can install plugins from the default repositories that are not yet installed on your device:
-
-1. Navigate to **Updates Manager** → **Plugins** → **Install New Plugins**
-2. The plugin will scan all active repositories from `DEFAULT_PLUGIN_REPOS` and show only those that are not currently installed
-3. Select which plugins you want to install using checkboxes (all are unchecked by default)
-4. Long-press on any plugin to view detailed information (description, release notes)
-5. Click **Install Selected** to download and install the selected plugins
-
-**How it works:**
-- Downloads the latest release ZIP asset from GitHub
-- Validates ZIP structure (must contain a single `*.koplugin` folder at the root)
-- Extracts the plugin to `KOReader/plugins/` directory
-- Automatically detects installed plugins even if they don't have a valid `_meta.lua` file
-
-**Note**: Only plugins from active (non-commented) repositories in `DEFAULT_PLUGIN_REPOS` are shown. Custom repositories and commented-out repositories are not included.
 
 <a id="plugins-for-authors"></a>
 ### For Plugin Authors
