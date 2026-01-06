@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.4] - 2026-01-06
+
+### Added
+- Added `Lalocaballero/readmastery.koplugin` to the default plugin repositories.
+- Icon for menu item
+
+### Changed
+- Updated default patch and plugin repository lists (added `medinauta/Koreader-Patches`, `kaikozlov/localsend.koplugin`).
+
 ## [1.3.3] - 2025-12-23
 
 ### Fixed

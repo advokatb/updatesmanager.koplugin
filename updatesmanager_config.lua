@@ -152,6 +152,13 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "Dxvgs's patches",
     },
+    {
+        owner = "medinauta",
+        repo = "Koreader-Patches",
+        branch = "main",
+        path = "",
+        description = "Medinauta's patches",
+    },
 }
 
 -- Commented out patch repositories (no proper releases or structure)
@@ -282,11 +289,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "ankiviewer.koplugin",
         description = "Anki Viewer plugin",
     },
-    {
-        owner = "markleenders",
-        repo = "stopwatchtimer.koplugin",
-        description = "Stopwatch Timer plugin",
-    },
+    -- {
+    --     owner = "markleenders",
+    --     repo = "stopwatchtimer.koplugin",
+    --     description = "Stopwatch Timer plugin",
+    -- },
     {
         owner = "DenisovichDev",
         repo = "randomquote.koplugin",
@@ -308,11 +315,27 @@ Config.DEFAULT_PLUGIN_REPOS = {
         description = "App Launcher plugin",
     },
     {
-        owner = "tachibana-shin",
-        repo = "rakuyomi",
-        asset_pattern = "*kindle*.zip",
-        description = "Rakuyomi plugin (Kindle build)",
+        owner = "moritz-john",
+        repo = "homeassistant.koplugin",
+        description = "Home Assistant plugin",
     },
+    {
+        owner = "KORComic",
+        repo = "comicreader.koplugin",
+        description = "Comic Reader plugin",
+    },
+    {
+        owner = "kaikozlov",
+        repo = "localsend.koplugin",
+        asset_pattern = "localsend-koplugin-armv7.zip",
+        description = "LocalSend plugin",
+    },
+    -- {
+    --     owner = "tachibana-shin",
+    --     repo = "rakuyomi",
+    --     asset_pattern = "*kindle*.zip",
+    --     description = "Rakuyomi plugin (Kindle build)",
+    -- },
     -- {
     --     owner = "joshuacant",
     --     repo = "ProjectTitle",
@@ -371,18 +394,8 @@ Config.DEFAULT_PLUGIN_REPOS = {
     -- },
     -- {
     --     owner = "KORComic",
-    --     repo = "comicreader.koplugin",
-    --     description = "Comic Reader plugin",
-    -- },
-    -- {
-    --     owner = "KORComic",
     --     repo = "comicmeta.koplugin",
     --     description = "Comic Meta plugin",
-    -- },
-    -- {
-    --     owner = "moritz-john",
-    --     repo = "homeassistant.koplugin",
-    --     description = "Home Assistant plugin",
     -- },
     -- {
     --     owner = "TomasDiLeo",
@@ -434,11 +447,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     repo = "koreader-Highlight-Sync",
     --     description = "Highlight Sync plugin",
     -- },
-    -- {
-    --     owner = "Lalocaballero",
-    --     repo = "readmastery.koplugin",
-    --     description = "Read Mastery plugin",
-    -- },
+    {
+        owner = "Lalocaballero",
+        repo = "readmastery.koplugin",
+        description = "Read Mastery plugin",
+    },
     -- {
     --     owner = "xconny",
     --     repo = "Koreader-Senet",
@@ -458,6 +471,17 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "iamnotwassim",
     --     repo = "focusruler",
     --     description = "Focus Ruler plugin",
+    -- },
+    -- {
+    --     owner = "wd12d",
+    --     repo = "KoStatsMulti-Plugin",
+    --     path = "kostats.koplugin",
+    --     description = "KoStats Multi plugin",
+    -- },
+    -- {
+    --     owner = "k-nacion",
+    --     repo = "highlightsscreensaver.koplugin",
+    --     description = "Highlights Screensaver plugin",
     -- },
 }
 

@@ -2302,7 +2302,7 @@ end
 -- Add to main menu
 function UpdatesManager:addToMainMenu(menu_items)
     menu_items.updates_manager = {
-        text = _("Updates Manager"),
+        text = "↻ " .. _("Updates Manager"),
         sorting_hint = "tools",
         sub_item_table = {
             {
