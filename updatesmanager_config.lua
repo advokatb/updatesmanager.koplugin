@@ -231,6 +231,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
         description = "Airplane Mode plugin",
     },
     {
+        owner = "gitalexcampos",
+        repo = "koreader-Highlight-Sync",
+        description = "Highlight-Sync plugin",
+    },
+    {
         owner = "kristianpennacchia",
         repo = "zzz-readermenuredesign.koplugin",
         description = "Reader Menu Redesign plugin",
