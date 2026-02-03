@@ -232,7 +232,7 @@ Config.DEFAULT_PLUGIN_REPOS = {
     },
     {
         owner = "gitalexcampos",
-        repo = "koreader-Highlight-Sync",
+        repo = "highlightsync.koplugin",
         description = "Highlight-Sync plugin",
     },
     {
