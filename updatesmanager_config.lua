@@ -199,6 +199,10 @@ Config.DEFAULT_PATCH_REPOS = {
 -- },
 
 -- Default list of plugin repositories
+-- Each entry may optionally include:
+--   asset_pattern  - glob or Lua pattern for release ZIP (default: *.zip)
+--   preserve_files - array of paths (relative to plugin dir) to keep when updating
+--                    e.g. {"config.lua", "api_key.txt"} for plugins that need user config/API keys
 Config.DEFAULT_PLUGIN_REPOS = {
     {
         owner = "loeffner",
@@ -364,6 +368,12 @@ Config.DEFAULT_PLUGIN_REPOS = {
         description = "LocalSend plugin",
     },
     -- {
+    --     owner = "Billiam",
+    --     repo = "hardcoverapp.koplugin",
+    --     description = "Hardcover App plugin",
+    --     preserve_files = {"hardcover_config.lua"},
+    -- },
+    -- {
     --     owner = "tachibana-shin",
     --     repo = "rakuyomi",
     --     asset_pattern = "*kindle*.zip",
@@ -399,11 +409,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "Billiam",
     --     repo = "crashlog.koplugin",
     --     description = "Crash Log plugin",
-    -- },
-    -- {
-    --     owner = "Billiam",
-    --     repo = "hardcoverapp.koplugin",
-    --     description = "Hardcover App plugin",
     -- },
     -- {
     --     owner = "monk-blade",

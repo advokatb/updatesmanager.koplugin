@@ -15,6 +15,7 @@ Updates Manager is a plugin for KOReader that helps you manage updates for patch
 - **Rate Limit Handling**: Automatically handles GitHub API rate limits with intelligent retry logic
 - **Progress Display**: Real-time progress updates during update checks
 - **Safe Installation**: Backs up existing files before updating
+- **Preserve files on plugin update**: Optional `preserve_files` in repo config keeps user config/API keys etc. when updating a plugin (paths with subfolders supported)
 - **MD5 Verification**: Validates file integrity using MD5 checksums
 - **Patch Descriptions**: Automatic extraction from comments, local editing
 - **Plugin Version Management**: Automatic version comparison for plugins
@@ -287,6 +288,38 @@ You can create a pull request to add your plugin to the plugin's default reposit
 3. Create a pull request with a description of your plugin
 4. Your PR will be reviewed and merged, making your plugin available to all users
 
+<a id="preserve-files"></a>
+#### Preserving files during plugin update
+
+If your plugin requires user-specific files (e.g. a config file with an API key, or a file created from an example during setup), those files would normally be overwritten when the user updates the plugin via Updates Manager (the plugin directory is replaced with the new release).
+
+You can ask for your repository entry to include **`preserve_files`**: a list of paths (relative to the plugin directory) that are **saved before the update and restored after** the new version is extracted. Only existing files are saved; paths are normalized (forward slashes, no leading slash).
+
+- **In the default list**: when adding your plugin to `DEFAULT_PLUGIN_REPOS`, include e.g. `preserve_files = {"config.lua", "api_key.txt"}`.
+- **User config**: in `updatesmanager_config.json`, a plugin entry may include a `"preserve_files"` array.
+
+Example (Lua, default list):
+
+```lua
+{
+    owner = "username",
+    repo = "myplugin.koplugin",
+    description = "My plugin",
+    preserve_files = {"config.lua", "credentials.lua"},
+}
+```
+
+Example (JSON, user config):
+
+```json
+{
+  "owner": "username",
+  "repo": "myplugin.koplugin",
+  "description": "My plugin",
+  "preserve_files": ["config.lua", "credentials.lua"]
+}
+```
+
 ---
 
 <a id="repository-configuration"></a>
@@ -376,6 +409,12 @@ You can combine both patches and plugins in a single configuration file:
       "repo": "readest",
       "asset_pattern": "*.koplugin.zip",
       "description": "Readest ebook reader plugin"
+    },
+    {
+      "owner": "username",
+      "repo": "myplugin.koplugin",
+      "description": "Plugin with user config",
+      "preserve_files": ["config.lua", "api_key.txt"]
     }
   ]
 }

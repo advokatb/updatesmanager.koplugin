@@ -1261,18 +1261,95 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
         end
     end
 
+    -- Create all parent directories for a file path (path separators: / or \)
+    local function ensureParentDirs(filepath)
+        local normalized = filepath:gsub("\\", "/")
+        local parts = {}
+        for part in normalized:gmatch("([^/]+)") do
+            table.insert(parts, part)
+        end
+        if #parts <= 1 then return end
+        local acc = parts[1]
+        for i = 2, #parts - 1 do
+            acc = acc .. "/" .. parts[i]
+            if lfs.attributes(acc, "mode") ~= "directory" then
+                lfs.mkdir(acc)
+            end
+        end
+    end
+
+    local function copyFile(src, dst)
+        local dir = dst:match("^(.*)/")
+        if dir and dir ~= "" then
+            if lfs.attributes(dir, "mode") ~= "directory" then
+                lfs.mkdir(dir)
+            end
+        end
+        local src_file = io.open(src, "rb")
+        if not src_file then return false end
+        local dst_file = io.open(dst, "wb")
+        if not dst_file then
+            src_file:close()
+            return false
+        end
+        local content = src_file:read("*a")
+        src_file:close()
+        dst_file:write(content)
+        dst_file:close()
+        return true
+    end
+
     local function installPlugin(update_info)
         local installed_plugin = update_info.installed_plugin
         local release = update_info.release
+        local repo_config = update_info.repo_config or {}
         local plugin_path = installed_plugin.path
         local plugin_entry = installed_plugin.entry
 
+        -- Optional: list of paths (relative to plugin dir) to preserve across updates (e.g. config with API key)
+        local preserve_files = repo_config.preserve_files
+        if preserve_files and type(preserve_files) ~= "table" then
+            preserve_files = nil
+        end
+        local preserved_dir = nil
+        local preserved_list = {} -- paths we actually saved
 
         -- Backup existing plugin
         local backup_path = plugin_path .. ".old"
         local is_windows = package.config:sub(1, 1) == "\\"
 
         if lfs.attributes(plugin_path, "mode") == "directory" then
+            -- Save files to preserve (before removing plugin dir)
+            if preserve_files and #preserve_files > 0 then
+                local cache_dir = Config.CACHE_DIR
+                if lfs.attributes(cache_dir, "mode") ~= "directory" then
+                    lfs.mkdir(cache_dir)
+                end
+                preserved_dir = cache_dir .. "/preserved_" .. plugin_entry
+                if lfs.attributes(preserved_dir, "mode") == "directory" then
+                    if is_windows then
+                        os.execute(string.format('rmdir /S /Q "%s"', preserved_dir))
+                    else
+                        os.execute(string.format('rm -rf "%s"', preserved_dir))
+                    end
+                end
+                lfs.mkdir(preserved_dir)
+                for _, rel_path in ipairs(preserve_files) do
+                    local path = (tostring(rel_path)):gsub("^[/\\]+", ""):gsub("\\", "/")
+                    if path ~= "" then
+                        local src = plugin_path .. "/" .. path
+                        if lfs.attributes(src, "mode") == "file" then
+                            local dst = preserved_dir .. "/" .. path
+                            ensureParentDirs(dst)
+                            if copyFile(src, dst) then
+                                table.insert(preserved_list, path)
+                            end
+                            -- If copy failed, skip restoring this file
+                        end
+                    end
+                end
+            end
+
             -- Remove old backup if exists
             if lfs.attributes(backup_path, "mode") == "directory" then
                 -- Try to remove old backup
@@ -1295,6 +1372,13 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
 
         if not downloadFile(release.zip_url, zip_path) then
             logger.err("UpdatesManager: Failed to download plugin ZIP")
+            if preserved_dir and lfs.attributes(preserved_dir, "mode") == "directory" then
+                if is_windows then
+                    os.execute(string.format('rmdir /S /Q "%s"', preserved_dir))
+                else
+                    os.execute(string.format('rm -rf "%s"', preserved_dir))
+                end
+            end
             return false
         end
 
@@ -1323,7 +1407,31 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
         if not ok then
             logger.err("UpdatesManager: Failed to extract plugin ZIP:", err)
             removeFile(zip_path)
+            if preserved_dir and lfs.attributes(preserved_dir, "mode") == "directory" then
+                if is_windows then
+                    os.execute(string.format('rmdir /S /Q "%s"', preserved_dir))
+                else
+                    os.execute(string.format('rm -rf "%s"', preserved_dir))
+                end
+            end
             return false
+        end
+
+        -- Restore preserved files over the extracted content
+        if preserved_dir and #preserved_list > 0 and lfs.attributes(preserved_dir, "mode") == "directory" then
+            for _, path in ipairs(preserved_list) do
+                local src = preserved_dir .. "/" .. path
+                local dst = final_path .. "/" .. path
+                if lfs.attributes(src, "mode") == "file" then
+                    ensureParentDirs(dst)
+                    copyFile(src, dst)
+                end
+            end
+            if is_windows then
+                os.execute(string.format('rmdir /S /Q "%s"', preserved_dir))
+            else
+                os.execute(string.format('rm -rf "%s"', preserved_dir))
+            end
         end
 
         -- Clean up

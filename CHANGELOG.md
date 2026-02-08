@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0] - 2026-02-08
+
+### Added
+- **Preserve files on plugin update**: Repository config now supports optional `preserve_files` — a list of paths (relative to the plugin directory) that are saved before the update and restored after the new version is extracted. Use this for config files, API keys, or any user-edited files that must not be overwritten.
+  - Paths with subfolders are supported (e.g. `preserve_files = {"lib/lib.lua", "config/credentials.lua"}`).
+  - Can be set in default repo list (Lua) or in user config `updatesmanager_config.json` (JSON).
+
 ## [1.3.56] - 2026-01-30
 
 ### Added
