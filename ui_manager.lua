@@ -17,6 +17,7 @@ local LineWidget = require("ui/widget/linewidget")
 local Menu = require("ui/widget/menu")
 local Size = require("ui/size")
 local Font = require("ui/font")
+local TextViewer = require("ui/widget/textviewer")
 local TextBoxWidget = require("ui/widget/textboxwidget")
 local TextWidget = require("ui/widget/textwidget")
 local UIManager = require("ui/uimanager")
@@ -111,15 +112,21 @@ function UIManager_Updates:_markdownToPlainText(markdown)
     return text
 end
 
-function UIManager_Updates:_createChangelogWidget(markdown)
+function UIManager_Updates:_createChangelogWidget(plugin_name, version, markdown)
     local text = self:_markdownToPlainText(markdown) or _("No changelog available for this version.")
-    local width = math.floor(math.min(Screen:getWidth(), Screen:getHeight()) * 0.9) - 2*(Size.border.window + Size.padding.button)
-    return TextBoxWidget:new{
+    return TextViewer:new{
+        title = T(_("Changelog — %1 (%2)"), plugin_name, version),
         text = text,
-        width = width,
-        face = Font:getFace("smallinfofont"),
-        alignment = "left",
-        line_height = 0.2,
+        show_menu = false,
+        add_default_buttons = false,
+        buttons_table = {
+            {{
+                 text = _("Close"),
+                 callback = function()
+                     self:onClose()
+                 end
+             }}
+        }
     }
 end
 
@@ -138,29 +145,8 @@ function UIManager_Updates:showPluginChangelog(update)
 
     local plugin_name = update.installed_plugin.fullname or update.installed_plugin.name or _("Unknown plugin")
     local version = release.version or release.tag_name or _("unknown")
-    local text_widget = self:_createChangelogWidget(changelog)
-
-    local dialog
-    dialog = ButtonDialog:new{
-        title = T(_("Changelog — %1 (%2)"), plugin_name, version),
-        _added_widgets = {
-            text_widget,
-        },
-        buttons = {
-            {
-                {
-                    text = _("Close"),
-                    callback = function()
-                        if dialog then
-                            dialog:onClose()
-                        end
-                    end,
-                },
-            },
-        },
-    }
-
-    UIManager:show(dialog)
+    local changelog_widget = self:_createChangelogWidget(plugin_name, version, changelog)
+    UIManager:show(changelog_widget)
 end
 
 function UIManager_Updates:_buildPluginUpdateRow(dialog, check_button, update)
