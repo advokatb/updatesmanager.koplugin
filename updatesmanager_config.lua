@@ -367,12 +367,12 @@ Config.DEFAULT_PLUGIN_REPOS = {
         asset_pattern = "localsend-koplugin-armv7.zip",
         description = "LocalSend plugin",
     },
-    -- {
-    --     owner = "Billiam",
-    --     repo = "hardcoverapp.koplugin",
-    --     description = "Hardcover App plugin",
-    --     preserve_files = {"hardcover_config.lua"},
-    -- },
+    {
+        owner = "Billiam",
+        repo = "hardcoverapp.koplugin",
+        description = "Hardcover App plugin",
+        preserve_files = {"hardcover_config.lua"},
+    },
     -- {
     --     owner = "tachibana-shin",
     --     repo = "rakuyomi",
