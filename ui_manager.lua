@@ -114,7 +114,8 @@ end
 
 function UIManager_Updates:_createChangelogWidget(plugin_name, version, markdown)
     local text = self:_markdownToPlainText(markdown) or _("No changelog available for this version.")
-    return TextViewer:new{
+    local text_viewer
+    text_viewer = TextViewer:new{
         title = T(_("Changelog — %1 (%2)"), plugin_name, version),
         text = text,
         show_menu = false,
@@ -123,11 +124,12 @@ function UIManager_Updates:_createChangelogWidget(plugin_name, version, markdown
             {{
                  text = _("Close"),
                  callback = function()
-                     self:onClose()
+                     text_viewer:onClose()
                  end
              }}
         }
     }
+    return text_viewer
 end
 
 function UIManager_Updates:showPluginChangelog(update)
