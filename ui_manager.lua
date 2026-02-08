@@ -47,7 +47,7 @@ local function sanitizeMarkdownLine(line)
     sanitized = sanitized:gsub("!%b[]%b()", "")
 
     -- HTML image tags: <img ...> → strip completely
-    sanitized = sanitized:gsub("<img.-?>", "")
+    sanitized = sanitized:gsub("<img.->", "")
 
     -- Reference links: [text][ref]
     sanitized = sanitized:gsub("%b[]%[%w-%]", function(match)
