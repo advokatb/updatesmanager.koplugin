@@ -7,6 +7,6 @@ return {
     name = "updatesmanager",
     fullname = _("Updates Manager"),
     description = _([[Manage updates for patches and plugins GitHub repositories.]]),
-    version = "1.4.0",
+    version = "1.4.2",
 }
 
