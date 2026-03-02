@@ -562,6 +562,12 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "koassistant.koplugin",
         description = "AI Assistant plugin",
     },
+    {
+        owner = "Tukks",
+        repo = "onyxbooxsync.koplugin",
+        description = "Allow to sync koreader and onyx book library",
+    },
+}
 }
 
 -- Paths
