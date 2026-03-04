@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.3] - 2026-03-04
+
+### Added
+- Added 8 new patch repositories: `tmfsd/KOReader-patches`, `xusoo/KOReader.patches`, `VeeBui/KOReader-patches`, `PedroMachado1/Koreader.patches`, `pxlflux/koreader-patches`, `thatcrazygame/koreader.patches`,  `crocodilestick/koreader-cloudflare-auth-patch`, `koma52/koreader.patches`.
+- Added 5 new plugin repositories to the default plugin repositories: `j-v/remotenote.koplugin`, `omer-faruq/phrasedeck.koplugin`, `Tukks/onyxbooxsync.koplugin`, `omer-faruq/instapaper.koplugin`, `zanderp/miniflux.koplugin`.
+
 ## [1.4.0] - 2026-02-08
 
 ### Added

@@ -187,16 +187,70 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "Rkram5424's patches",
     },
+    {
+        owner = "ameyrk99",
+        repo = "koreader-patches-plugins",
+        branch = "mainline",
+        path = "patches",
+        description = "Ameyrk99's patches (bookshelf screensaver, etc.)",
+    },
+    {
+        owner = "VeeBui",
+        repo = "KOReader-patches",
+        branch = "main",
+        path = "",
+        description = "VeeBui's patches",
+    },
+    {
+        owner = "tmfsd",
+        repo = "KOReader-patches",
+        branch = "main",
+        path = "",
+        description = "Tmfsd's patches",
+    },
+    {
+        owner = "xusoo",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "Xusoo's patches",
+    },
+    {
+        owner = "PedroMachado1",
+        repo = "Koreader.patches",
+        branch = "main",
+        path = "",
+        description = "PedroMachado1's patches",
+    },
+    {
+        owner = "pxlflux",
+        repo = "koreader-patches",
+        branch = "main",
+        path = "",
+        description = "Pxlflux's patches",
+    },
+    {
+        owner = "thatcrazygame",
+        repo = "koreader.patches",
+        branch = "main",
+        path = "",
+        description = "Thatcrazygame's patches",
+    },
+    {
+        owner = "crocodilestick",
+        repo = "koreader-cloudflare-auth-patch",
+        branch = "main",
+        path = "",
+        description = "Cloudflare Access auth patch",
+    },
+    {
+        owner = "koma52",
+        repo = "koreader.patches",
+        branch = "main",
+        path = "",
+        description = "Koma52's patches",
+    },
 }
-
--- Commented out patch repositories (no proper releases or structure)
--- {
---     owner = "VeeBui",
---     repo = "KOReader-patches",
---     branch = "main",
---     path = "",
---     description = "VeeBui's patches",
--- },
 
 -- Default list of plugin repositories
 -- Each entry may optionally include:
@@ -355,7 +409,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "moritz-john",
         repo = "homeassistant.koplugin",
         description = "Home Assistant plugin",
-        preserve_files = {"config.lua"},
     },
     {
         owner = "KORComic",
@@ -410,6 +463,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "Billiam",
     --     repo = "crashlog.koplugin",
     --     description = "Crash Log plugin",
+    -- },
+    -- {
+    --     owner = "xblain",
+    --     repo = "annotationsviewer.koplugin",
+    --     description = "Annotations Viewer (All Notes & Highlights) plugin",
     -- },
     -- {
     --     owner = "monk-blade",
@@ -557,10 +615,66 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     repo = "koreader-notion-sync",
     --     description = "Notion Sync plugin",
     -- },
+    -- {
+    --     owner = "uttam-salamander",
+    --     repo = "koreader-life-tracker",
+    --     description = "Life Tracker plugin",
+    -- },
+    -- {
+    --     owner = "Kaito0",
+    --     repo = "panelreader.koplugin",
+    --     description = "Panel Reader plugin",
+    -- },
+    -- {
+    --     owner = "matheus0312",
+    --     repo = "autoturnCompute",
+    --     description = "Auto Turn Compute plugin",
+    -- },
+    -- {
+    --     owner = "ZlibraryKO",
+    --     repo = "zlibrary.koplugin",
+    --     description = "Zlibrary plugin",
+    -- },
+    -- {
+    --     owner = "mysticknits",
+    --     repo = "pencil.koplugin",
+    --     description = "Pencil plugin",
+    -- },
+    -- {
+    --     owner = "micropescabr-dev",
+    --     repo = "Ko-Translator",
+    --     description = "Ko Translator plugin",
+    -- },
     {
         owner = "zeeyado",
         repo = "koassistant.koplugin",
         description = "AI Assistant plugin",
+    },
+    {
+        owner = "j-v",
+        repo = "remotenote.koplugin",
+        asset_pattern = "remotenote.koplugin-armv7.zip",
+        description = "Remote Note plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "phrasedeck.koplugin",
+        description = "Phrase Deck plugin",
+    },
+    {
+        owner = "Tukks",
+        repo = "onyxbooxsync.koplugin",
+        description = "Onyx Boox Sync plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "instapaper.koplugin",
+        description = "Instapaper plugin",
+    },
+    {
+        owner = "zanderp",
+        repo = "miniflux.koplugin",
+        description = "Miniflux RSS plugin",
     },
 }
 
