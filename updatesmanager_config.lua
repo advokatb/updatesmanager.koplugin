@@ -409,6 +409,7 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "moritz-john",
         repo = "homeassistant.koplugin",
         description = "Home Assistant plugin",
+        preserve_files = {"config.lua"},
     },
     {
         owner = "KORComic",
