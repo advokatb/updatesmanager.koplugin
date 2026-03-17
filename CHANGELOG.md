@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.4] - 2026-03-17
+
+### Added
+- Added 2 new plugin repositories to the default plugin repositories: `stefan-misik/game2048.koplugin`, `qewer33/quickrss.koplugin`.
+
 ## [1.4.3] - 2026-03-04
 
 ### Added

@@ -665,7 +665,8 @@ Config.DEFAULT_PLUGIN_REPOS = {
     {
         owner = "Tukks",
         repo = "onyxbooxsync.koplugin",
-        description = "Onyx Boox Sync plugin",
+        asset_pattern = "onyxbooxsync.koplugin.zip",
+        description = "Allow to sync koreader and onyx book library",
     },
     {
         owner = "omer-faruq",
@@ -676,6 +677,16 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "zanderp",
         repo = "miniflux.koplugin",
         description = "Miniflux RSS plugin",
+    },
+    {
+        owner = "stefan-misik",
+        repo = "game2048.koplugin",
+        description = "Game 2048 plugin",
+    },
+    {
+        owner = "qewer33",
+        repo = "quickrss.koplugin",
+        description = "QuickRSS RSS reader plugin",
     },
 }
 
