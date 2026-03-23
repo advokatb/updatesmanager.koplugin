@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.5] - 2026-03-04
+
+### Added
+- Added 6 new patch repositories: `ReaLx3m/KOReader-AI-Slop-User-Patches`, `Craftwork2720/koreader-patches`, `Wolfazzo/Koreader-contextual-display`, `koboprincess/KOReader-Patches-`, `ivanma70/KOReader.patches`, `cramoisi/koreader.patches`.
+- Added new plugin repository to the default plugin repositories: `moritz-john/heartbeat.koplugin`.
+
 ## [1.4.4] - 2026-03-17
 
 ### Added

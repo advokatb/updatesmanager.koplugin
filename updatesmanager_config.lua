@@ -250,6 +250,48 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "Koma52's patches",
     },
+    {
+        owner = "ReaLx3m",
+        repo = "KOReader-AI-Slop-User-Patches",
+        branch = "main",
+        path = "",
+        description = "ReaLx3m's patches",
+    },
+    {
+        owner = "Craftwork2720",
+        repo = "koreader-patches",
+        branch = "main",
+        path = "",
+        description = "Craftwork2720's patches",
+    },
+    {
+        owner = "Wolfazzo",
+        repo = "Koreader-contextual-display",
+        branch = "main",
+        path = "",
+        description = "Wolfazzo's contextual display patch",
+    },
+    {
+        owner = "koboprincess",
+        repo = "KOReader-Patches-",
+        branch = "main",
+        path = "",
+        description = "Koboprincess's patches",
+    },
+    {
+        owner = "ivanma70",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "Ivanma70's patches",
+    },
+    {
+        owner = "cramoisi",
+        repo = "koreader.patches",
+        branch = "main",
+        path = "",
+        description = "Cramoisi's patches",
+    },
 }
 
 -- Default list of plugin repositories
@@ -646,6 +688,28 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     repo = "Ko-Translator",
     --     description = "Ko Translator plugin",
     -- },
+    -- {
+    --     owner = "doctorhetfield-cmd",
+    --     repo = "simpleui.koplugin",
+    --     description = "Simple UI plugin",
+    -- },
+    -- {
+    --     owner = "abrahamnm",
+    --     repo = "filesync.koplugin",
+    --     asset_pattern = "filesync.koplugin.zip",
+    --     description = "File Sync plugin",
+    -- },
+    -- {
+    --     owner = "sadke8465",
+    --     repo = "Koreader-Custom-Bookmark-Manager",
+    --     path = "dogearmanager.koplugin",
+    --     description = "Custom Bookmark Manager plugin",
+    -- },
+    -- {
+    --     owner = "19jm81",
+    --     repo = "koreader-obsidian-sync",
+    --     description = "Obsidian Sync plugin",
+    -- },
     {
         owner = "zeeyado",
         repo = "koassistant.koplugin",
@@ -687,6 +751,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "qewer33",
         repo = "quickrss.koplugin",
         description = "QuickRSS RSS reader plugin",
+    },
+    {
+        owner = "moritz-john",
+        repo = "heartbeat.koplugin",
+        description = "Heartbeat plugin",
     },
 }
 
