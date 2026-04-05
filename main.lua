@@ -1299,6 +1299,63 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
         return true
     end
 
+    -- Remove Finder / zip-on-macOS junk (__MACOSX, AppleDouble ._*, .DS_Store) after unpack.
+    local function removeDirRecursive(path, is_win)
+        if is_win then
+            os.execute(string.format('rmdir /S /Q "%s"', path))
+        else
+            os.execute(string.format('rm -rf "%s"', path))
+        end
+    end
+
+    local function removeEmptyDirsRecursive(dir, anchor)
+        if lfs.attributes(dir, "mode") ~= "directory" then
+            return
+        end
+        for name in lfs.dir(dir) do
+            if name ~= "." and name ~= ".." then
+                local full = dir .. "/" .. name
+                if lfs.attributes(full, "mode") == "directory" then
+                    removeEmptyDirsRecursive(full, anchor)
+                end
+            end
+        end
+        if dir ~= anchor then
+            local nonempty = false
+            for name in lfs.dir(dir) do
+                if name ~= "." and name ~= ".." then
+                    nonempty = true
+                    break
+                end
+            end
+            if not nonempty then
+                pcall(lfs.rmdir, dir)
+            end
+        end
+    end
+
+    local function cleanupMacOsZipArtifacts(root, is_win)
+        local mode = lfs.attributes(root, "mode")
+        if mode ~= "directory" then
+            return
+        end
+        for name in lfs.dir(root) do
+            if name ~= "." and name ~= ".." then
+                local full = root .. "/" .. name
+                local m = lfs.attributes(full, "mode")
+                if name == "__MACOSX" and m == "directory" then
+                    removeDirRecursive(full, is_win)
+                elseif name == ".DS_Store" and m == "file" then
+                    pcall(os.remove, full)
+                elseif m == "file" and name:sub(1, 2) == "._" then
+                    pcall(os.remove, full)
+                elseif m == "directory" then
+                    cleanupMacOsZipArtifacts(full, is_win)
+                end
+            end
+        end
+    end
+
     local function installPlugin(update_info)
         local installed_plugin = update_info.installed_plugin
         local release = update_info.release
@@ -1416,6 +1473,9 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
             end
             return false
         end
+
+        cleanupMacOsZipArtifacts(final_path, is_windows)
+        removeEmptyDirsRecursive(final_path, final_path)
 
         -- Restore preserved files over the extracted content
         if preserved_dir and #preserved_list > 0 and lfs.attributes(preserved_dir, "mode") == "directory" then

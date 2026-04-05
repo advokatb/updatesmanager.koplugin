@@ -292,6 +292,48 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "Cramoisi's patches",
     },
+    {
+        owner = "pkoreader",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "pkoreader's patches",
+    },
+    {
+        owner = "qewer33",
+        repo = "koreader-patches",
+        branch = "main",
+        path = "",
+        description = "Qewer33's patches",
+    },
+    {
+        owner = "gennaro-tedesco",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "Gennaro Tedesco's patches",
+    },
+    {
+        owner = "plateaukao",
+        repo = "koreader_patches",
+        branch = "main",
+        path = "",
+        description = "Plateaukao's patches",
+    },
+    {
+        owner = "ImSoRight",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "ImSoRight's patches",
+    },
+    {
+        owner = "chiahsien",
+        repo = "KOReader-Patch-Sort-By-Author-Series",
+        branch = "main",
+        path = "",
+        description = "Sort by author/series patch",
+    },
 }
 
 -- Default list of plugin repositories
@@ -482,11 +524,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Project Title plugin",
     -- },
     -- Commented out repositories (no proper releases)
-    -- {
-    --     owner = "bozo22",
-    --     repo = "imagebookmarks.koplugin",
-    --     description = "Image Bookmarks plugin",
-    -- },
     -- {
     --     owner = "roygbyte",
     --     repo = "weather.koplugin",
@@ -689,9 +726,32 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Ko Translator plugin",
     -- },
     -- {
-    --     owner = "doctorhetfield-cmd",
-    --     repo = "simpleui.koplugin",
-    --     description = "Simple UI plugin",
+    --     owner = "Sirozha1337",
+    --     repo = "fastdictlookup.koplugin",
+    --     description = "Fast dictionary lookup plugin",
+    -- },
+    -- {
+    --     owner = "Tokeloshe",
+    --     repo = "tomo",
+    --     description = "Tomo plugin",
+    -- },
+    -- {
+    --     owner = "rmmr111",
+    --     repo = "statsqr-koreader",
+    --     path = "statsqr.koplugin",
+    --     description = "Stats QR plugin",
+    -- },
+    -- {
+    --     owner = "nefelodamon",
+    --     repo = "KoCharacters",
+    --     path = "kocharacters.koplugin",
+    --     description = "KoCharacters plugin",
+    -- },
+    -- {
+    --     owner = "artemartemenko",
+    --     repo = "KOReader_MultiUser.koplugin",
+    --     path = "multiuser.koplugin",
+    --     description = "Multi-user plugin",
     -- },
     -- {
     --     owner = "abrahamnm",
@@ -709,6 +769,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "19jm81",
     --     repo = "koreader-obsidian-sync",
     --     description = "Obsidian Sync plugin",
+    -- },
+    -- {
+    --     owner = "Tokisaki-Galaxy",
+    --     repo = "koreader-kosync2.koplugin",
+    --     description = "KoSync2 plugin",
     -- },
     {
         owner = "zeeyado",
@@ -756,6 +821,37 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "moritz-john",
         repo = "heartbeat.koplugin",
         description = "Heartbeat plugin",
+    },
+    {
+        owner = "doctorhetfield-cmd",
+        repo = "simpleui.koplugin",
+        description = "Simple UI plugin",
+    },
+    {
+        owner = "AndyHazz",
+        repo = "bookends.koplugin",
+        description = "Bookends plugin",
+    },
+    {
+        owner = "ThePixelPro366",
+        repo = "KoStatsMulti-Plugin",
+        path = "kostats.koplugin",
+        description = "KoStats Multi plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "kotranslate.koplugin",
+        description = "KOTranslate plugin",
+    },
+    {
+        owner = "bozo22",
+        repo = "imagebookmarks.koplugin",
+        description = "Image Bookmarks plugin",
+    },
+    {
+        owner = "stradichenko",
+        repo = "audiobook.koplugin",
+        description = "Audiobook plugin",
     },
 }
 

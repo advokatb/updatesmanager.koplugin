@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.4.6] - 2026-04-05
+
+### Added
+- Added 6 new patch repositories: `pkoreader/KOReader.patches`, `qewer33/koreader-patches`, `gennaro-tedesco/KOReader.patches`, `plateaukao/koreader_patches`, `ImSoRight/KOReader.patches`, `chiahsien/KOReader-Patch-Sort-By-Author-Series`, `imagebookmarks.koplugin`, `stradichenko/audiobook.koplugin`.
+- Added 4 new plugin repositories: `AndyHazz/bookends.koplugin`, `ThePixelPro366/KoStatsMulti-Plugin` (plugin path `kostats.koplugin`), `Tokisaki-Galaxy/koreader-kosync2.koplugin`, `omer-faruq/kotranslate.koplugin`, `doctorhetfield-cmd/simpleui.koplugin`.
+
+### Fixed
+- After extracting a plugin release ZIP, strip macOS/Finder junk: remove `__MACOSX` directories, AppleDouble files (`._*`), and `.DS_Store`, then prune empty folders—so archives created on macOS no longer leave nested garbage under the plugin directory.
+
+
 ## [1.4.5] - 2026-03-04
 
 ### Added
