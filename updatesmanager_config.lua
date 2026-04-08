@@ -401,6 +401,7 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "omer-faruq",
         repo = "assistant.koplugin",
         description = "AI Assistant plugin",
+        preserve_files = {"configuration.lua"},
     },
     {
         owner = "0xmiki",
