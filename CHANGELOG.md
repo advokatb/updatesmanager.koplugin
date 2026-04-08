@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.6.1] - 2026-04-05
+
+### Added
+- omer-faruq/assistant.koplugin: add preserve_files
+
+
 ## [1.4.6] - 2026-04-05
 
 ### Added
