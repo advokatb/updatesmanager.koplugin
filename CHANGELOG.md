@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.6.2] - 2026-04-05
+
+### Added
+- Sirozha1337/fastdictlookup.koplugin
+
 ## [1.4.6.1] - 2026-04-05
 
 ### Added

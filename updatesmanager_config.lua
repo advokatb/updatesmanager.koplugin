@@ -513,6 +513,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
         description = "Hardcover App plugin",
         preserve_files = {"hardcover_config.lua"},
     },
+    {
+        owner = "Sirozha1337",
+        repo = "fastdictlookup.koplugin",
+        description = "Fast dictionary lookup plugin",
+    },
     -- {
     --     owner = "tachibana-shin",
     --     repo = "rakuyomi",
@@ -725,11 +730,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     owner = "micropescabr-dev",
     --     repo = "Ko-Translator",
     --     description = "Ko Translator plugin",
-    -- },
-    -- {
-    --     owner = "Sirozha1337",
-    --     repo = "fastdictlookup.koplugin",
-    --     description = "Fast dictionary lookup plugin",
     -- },
     -- {
     --     owner = "Tokeloshe",
