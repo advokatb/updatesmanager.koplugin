@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.7] - 2026-04-26
+
+### Added
+- Added 3 new patch repositories: `timoleistner/KOReader.patches`, `graphirus-prog/reading-history-popup-table-plus`, `jmanteau/KOReader.patches`.
+- Added 5 new plugin repositories: `ultimatejimmy/koreader-xray-plugin`, `omer-faruq/send2telegram.koplugin`, `PedroMachado1/kopet.koplugin`, `pxlflux/customisablesleepscreen.koplugin`, `omer-faruq/slidepuzzle.koplugin`.
+
 ## [1.4.6.2] - 2026-04-05
 
 ### Added

@@ -334,6 +334,27 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "Sort by author/series patch",
     },
+    {
+        owner = "timoleistner",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "Timoleistner's patches",
+    },
+    {
+        owner = "graphirus-prog",
+        repo = "reading-history-popup-table-plus",
+        branch = "main",
+        path = "",
+        description = "Reading history popup table plus patch",
+    },
+    {
+        owner = "jmanteau",
+        repo = "KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "Jmanteau's patches",
+    },
 }
 
 -- Default list of plugin repositories
@@ -772,6 +793,17 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Obsidian Sync plugin",
     -- },
     -- {
+    --     owner = "xusoo",
+    --     repo = "shortcutstoolbar.koplugin",
+    --     description = "Shortcuts Toolbar plugin",
+    -- },
+    -- {
+    --     owner = "graphirus-prog",
+    --     repo = "koreader-session-cleaner",
+    --     path = "sessioncleaner.koplugin",
+    --     description = "Session Cleaner plugin",
+    -- },
+    -- {
     --     owner = "Tokisaki-Galaxy",
     --     repo = "koreader-kosync2.koplugin",
     --     description = "KoSync2 plugin",
@@ -853,6 +885,31 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "stradichenko",
         repo = "audiobook.koplugin",
         description = "Audiobook plugin",
+    },
+    {
+        owner = "ultimatejimmy",
+        repo = "koreader-xray-plugin",
+        description = "X-Ray plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "send2telegram.koplugin",
+        description = "Send2Telegram plugin",
+    },
+    {
+        owner = "PedroMachado1",
+        repo = "kopet.koplugin",
+        description = "KO Pet plugin",
+    },
+    {
+        owner = "pxlflux",
+        repo = "customisablesleepscreen.koplugin",
+        description = "Customisable Sleep Screen plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "slidepuzzle.koplugin",
+        description = "Slide Puzzle plugin",
     },
 }
 
