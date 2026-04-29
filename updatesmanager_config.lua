@@ -911,6 +911,12 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "slidepuzzle.koplugin",
         description = "Slide Puzzle plugin",
     },
+    {
+        owner = "burneracc0112",
+        repo = "storygraph.koplugin",
+        description = "Storygraph App plugin",
+        preserve_files = {"hardcover_config.lua", "storygraph_config.lua"},
+    },
 }
 
 -- Paths
