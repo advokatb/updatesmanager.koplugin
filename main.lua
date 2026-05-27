@@ -60,6 +60,28 @@ function UpdatesManager:onReaderReady()
     end
 end
 
+-- KOReader's PluginLoader calls this when the user enables
+-- "Also delete plugin settings" while uninstalling this plugin.
+function UpdatesManager:deletePluginSettings()
+    local ffiUtil = require("ffi/util")
+
+    -- Remove all persisted settings/state owned by this plugin.
+    local files_to_remove = {
+        Config.CONFIG_FILE,
+        Config.CACHE_FILE,
+        Config.PLUGIN_CACHE_FILE,
+        Config.PATCH_DESCRIPTIONS_FILE,
+        Config.IGNORED_PATCHES_FILE,
+        Config.GITHUB_TOKEN_FILE,
+    }
+
+    for _, path in ipairs(files_to_remove) do
+        pcall(os.remove, path)
+    end
+
+    pcall(ffiUtil.purgeDir, Config.CACHE_DIR)
+end
+
 -- Clear cache
 function UpdatesManager:clearCache()
     local cache_file = Config.CACHE_FILE

@@ -2,9 +2,12 @@
 
 ## [1.4.9] - 2026-05-27
 
+### Added
+- Added KOReader uninstall hook `deletePluginSettings()` to remove Updates Manager settings when users check **"Also delete plugin settings"** in plugin management ([#30](https://github.com/advokatb/updatesmanager.koplugin/issues/30)).
 ### Fixed
 
 - Fix: progress file renamed to .progress.txt to prevent e-readers from detecting it as a book (#31)
+
 
 ## [1.4.8] - 2026-05-27
 
