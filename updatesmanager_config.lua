@@ -486,11 +486,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "ankiviewer.koplugin",
         description = "Anki Viewer plugin",
     },
-    -- {
-    --     owner = "markleenders",
-    --     repo = "stopwatchtimer.koplugin",
-    --     description = "Stopwatch Timer plugin",
-    -- },
     {
         owner = "DenisovichDev",
         repo = "randomquote.koplugin",
@@ -539,6 +534,154 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "fastdictlookup.koplugin",
         description = "Fast dictionary lookup plugin",
     },
+    {
+        owner = "omer-faruq",
+        repo = "simpleui_ext.koplugin",
+        description = "SimpleUI Extra Modules",
+    },
+    {
+        owner = "AnthonyGress",
+        repo = "zen_ui.koplugin",
+        description = "Zen UI plugin",
+    },
+    {
+        owner = "Sirozha1337",
+        repo = "storytellersync.koplugin",
+        description = "Storyteller Sync",
+    },
+    {
+        owner = "quanganhdo",
+        repo = "plainui.koplugin",
+        description = "Plain UI",
+    },
+    {
+        owner = "AndyHazz",
+        repo = "bookshelf.koplugin",
+        description = "Bookshelf",
+    },
+    {
+        owner = "Lalocaballero",
+        repo = "readmastery.koplugin",
+        description = "Read Mastery plugin",
+    },
+    {
+        owner = "TomasDiLeo",
+        repo = "pageturner.koplugin",
+        description = "Page Turner plugin",
+    },
+    {
+        owner = "zeeyado",
+        repo = "koassistant.koplugin",
+        description = "AI Assistant plugin",
+    },
+    {
+        owner = "j-v",
+        repo = "remotenote.koplugin",
+        asset_pattern = "remotenote.koplugin-armv7.zip",
+        description = "Remote Note plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "phrasedeck.koplugin",
+        description = "Phrase Deck plugin",
+    },
+    {
+        owner = "Tukks",
+        repo = "onyxbooxsync.koplugin",
+        asset_pattern = "onyxbooxsync.koplugin.zip",
+        description = "Allow to sync koreader and onyx book library",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "instapaper.koplugin",
+        description = "Instapaper plugin",
+    },
+    {
+        owner = "zanderp",
+        repo = "miniflux.koplugin",
+        description = "Miniflux RSS plugin",
+    },
+    {
+        owner = "stefan-misik",
+        repo = "game2048.koplugin",
+        description = "Game 2048 plugin",
+    },
+    {
+        owner = "qewer33",
+        repo = "quickrss.koplugin",
+        description = "QuickRSS RSS reader plugin",
+    },
+    {
+        owner = "moritz-john",
+        repo = "heartbeat.koplugin",
+        description = "Heartbeat plugin",
+    },
+    {
+        owner = "doctorhetfield-cmd",
+        repo = "simpleui.koplugin",
+        description = "Simple UI plugin",
+    },
+    {
+        owner = "AndyHazz",
+        repo = "bookends.koplugin",
+        description = "Bookends plugin",
+    },
+    {
+        owner = "ThePixelPro366",
+        repo = "KoStatsMulti-Plugin",
+        path = "kostats.koplugin",
+        description = "KoStats Multi plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "kotranslate.koplugin",
+        description = "KOTranslate plugin",
+    },
+    {
+        owner = "bozo22",
+        repo = "imagebookmarks.koplugin",
+        description = "Image Bookmarks plugin",
+    },
+    {
+        owner = "stradichenko",
+        repo = "audiobook.koplugin",
+        description = "Audiobook plugin",
+    },
+    {
+        owner = "ultimatejimmy",
+        repo = "koreader-xray-plugin",
+        description = "X-Ray plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "send2telegram.koplugin",
+        description = "Send2Telegram plugin",
+    },
+    {
+        owner = "PedroMachado1",
+        repo = "kopet.koplugin",
+        description = "KO Pet plugin",
+    },
+    {
+        owner = "pxlflux",
+        repo = "customisablesleepscreen.koplugin",
+        description = "Customisable Sleep Screen plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "slidepuzzle.koplugin",
+        description = "Slide Puzzle plugin",
+    },
+    {
+        owner = "burneracc0112",
+        repo = "storygraph.koplugin",
+        description = "Storygraph App plugin",
+        preserve_files = {"hardcover_config.lua", "storygraph_config.lua"},
+    },    -- {
+    --     owner = "markleenders",
+    --     repo = "stopwatchtimer.koplugin",
+    --     description = "Stopwatch Timer plugin",
+    -- },
     -- {
     --     owner = "tachibana-shin",
     --     repo = "rakuyomi",
@@ -551,6 +694,46 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Project Title plugin",
     -- },
     -- Commented out repositories (no proper releases)
+    -- {
+    --     owner = "yupmoon",
+    --     repo = "vocabdeck.koplugin",
+    --     description = "VocabDeck plugin",
+    -- },
+    -- {
+    --     owner = "Craftwork2720",
+    --     repo = "incognito.koplugin",
+    --     description = "KOReader incognito plugin",
+    -- },
+    -- {
+    --     owner = "mjcopper",
+    --     repo = "casualkochess.koplugin",
+    --     description = "Casual Chess & Board Games",
+    -- },
+    -- {
+    --     owner = "QiuYukang",
+    --     repo = "kindlebtcontroller.koplugin",
+    --     description = "Kindle Bluetooth Controller",
+    -- },
+    -- {
+    --     owner = "Craftwork2720",
+    --     repo = "foldermemory.koplugin",
+    --     description = "FolderMemory – KOReader plugin that remembers your folder preferences",
+    -- },
+    -- {
+    --     owner = "doconline2026-cell",
+    --     repo = "memdeck",
+    --     description = "MemDeck - Flashcard Language Learning App",
+    -- },
+    -- {
+    --     owner = "c5e3",
+    --     repo = "koreader_wikipedia",
+    --     description = "Offline Wikipedia for KOReader (ZIM plugin)",
+    -- },
+    -- {
+    --     owner = "right9code",
+    --     repo = "githubbrowser.koplugin",
+    --     description = "Github Browser Plugin for KOReader",
+    -- },
     -- {
     --     owner = "roygbyte",
     --     repo = "weather.koplugin",
@@ -651,16 +834,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     repo = "koreader-Highlight-Sync",
     --     description = "Highlight Sync plugin",
     -- },
-    {
-        owner = "Lalocaballero",
-        repo = "readmastery.koplugin",
-        description = "Read Mastery plugin",
-    },
-    {
-        owner = "TomasDiLeo",
-        repo = "pageturner.koplugin",
-        description = "Page Turner plugin",
-    },
     -- {
     --     owner = "xconny",
     --     repo = "Koreader-Senet",
@@ -808,115 +981,6 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     repo = "koreader-kosync2.koplugin",
     --     description = "KoSync2 plugin",
     -- },
-    {
-        owner = "zeeyado",
-        repo = "koassistant.koplugin",
-        description = "AI Assistant plugin",
-    },
-    {
-        owner = "j-v",
-        repo = "remotenote.koplugin",
-        asset_pattern = "remotenote.koplugin-armv7.zip",
-        description = "Remote Note plugin",
-    },
-    {
-        owner = "omer-faruq",
-        repo = "phrasedeck.koplugin",
-        description = "Phrase Deck plugin",
-    },
-    {
-        owner = "Tukks",
-        repo = "onyxbooxsync.koplugin",
-        asset_pattern = "onyxbooxsync.koplugin.zip",
-        description = "Allow to sync koreader and onyx book library",
-    },
-    {
-        owner = "omer-faruq",
-        repo = "instapaper.koplugin",
-        description = "Instapaper plugin",
-    },
-    {
-        owner = "zanderp",
-        repo = "miniflux.koplugin",
-        description = "Miniflux RSS plugin",
-    },
-    {
-        owner = "stefan-misik",
-        repo = "game2048.koplugin",
-        description = "Game 2048 plugin",
-    },
-    {
-        owner = "qewer33",
-        repo = "quickrss.koplugin",
-        description = "QuickRSS RSS reader plugin",
-    },
-    {
-        owner = "moritz-john",
-        repo = "heartbeat.koplugin",
-        description = "Heartbeat plugin",
-    },
-    {
-        owner = "doctorhetfield-cmd",
-        repo = "simpleui.koplugin",
-        description = "Simple UI plugin",
-    },
-    {
-        owner = "AndyHazz",
-        repo = "bookends.koplugin",
-        description = "Bookends plugin",
-    },
-    {
-        owner = "ThePixelPro366",
-        repo = "KoStatsMulti-Plugin",
-        path = "kostats.koplugin",
-        description = "KoStats Multi plugin",
-    },
-    {
-        owner = "omer-faruq",
-        repo = "kotranslate.koplugin",
-        description = "KOTranslate plugin",
-    },
-    {
-        owner = "bozo22",
-        repo = "imagebookmarks.koplugin",
-        description = "Image Bookmarks plugin",
-    },
-    {
-        owner = "stradichenko",
-        repo = "audiobook.koplugin",
-        description = "Audiobook plugin",
-    },
-    {
-        owner = "ultimatejimmy",
-        repo = "koreader-xray-plugin",
-        description = "X-Ray plugin",
-    },
-    {
-        owner = "omer-faruq",
-        repo = "send2telegram.koplugin",
-        description = "Send2Telegram plugin",
-    },
-    {
-        owner = "PedroMachado1",
-        repo = "kopet.koplugin",
-        description = "KO Pet plugin",
-    },
-    {
-        owner = "pxlflux",
-        repo = "customisablesleepscreen.koplugin",
-        description = "Customisable Sleep Screen plugin",
-    },
-    {
-        owner = "omer-faruq",
-        repo = "slidepuzzle.koplugin",
-        description = "Slide Puzzle plugin",
-    },
-    {
-        owner = "burneracc0112",
-        repo = "storygraph.koplugin",
-        description = "Storygraph App plugin",
-        preserve_files = {"hardcover_config.lua", "storygraph_config.lua"},
-    },
 }
 
 -- Paths

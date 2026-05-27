@@ -574,3 +574,6 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 
 - Based on `2-update-patches.lua` by sebdelsol
 - Inspired by the KOReader patch and plugin ecosystem
+
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z11PJHAA)
