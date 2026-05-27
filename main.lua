@@ -710,7 +710,7 @@ function UpdatesManager:checkForUpdates(force_refresh)
         end
 
         -- Create progress file for communication between subprocess and main process
-        local progress_file = Config.CACHE_DIR .. "/progress.txt"
+        local progress_file = Config.CACHE_DIR .. "/.progress.txt"
         local function writeProgress(text)
             local file = io.open(progress_file, "w")
             if file then
@@ -2055,7 +2055,7 @@ function UpdatesManager:checkForPatchUpdates(force_refresh)
         end
 
         -- Create progress file
-        local progress_file = Config.CACHE_DIR .. "/progress.txt"
+        local progress_file = Config.CACHE_DIR .. "/.progress.txt"
         local function writeProgress(text)
             local file = io.open(progress_file, "w")
             if file then
@@ -2278,7 +2278,7 @@ function UpdatesManager:checkForPluginUpdates(force_refresh)
         end
 
         -- Create progress file
-        local progress_file = Config.CACHE_DIR .. "/progress.txt"
+        local progress_file = Config.CACHE_DIR .. "/.progress.txt"
         local function writeProgress(text)
             local file = io.open(progress_file, "w")
             if file then
