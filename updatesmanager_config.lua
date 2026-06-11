@@ -355,6 +355,13 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "",
         description = "Jmanteau's patches",
     },
+    {
+        owner = "ckilb",
+        repo = "pocketbooksync.koplugin",
+        branch = "main",
+        path = "patches",
+        description = "Pocketbook Sync - patches",
+    },
 }
 
 -- Default list of plugin repositories
@@ -677,7 +684,13 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "storygraph.koplugin",
         description = "Storygraph App plugin",
         preserve_files = {"hardcover_config.lua", "storygraph_config.lua"},
-    },    -- {
+    },
+    {
+        owner = "ckilb",
+        repo = "pocketbooksync.koplugin",
+        description = "Pocketbook Sync",
+    }
+    -- {
     --     owner = "markleenders",
     --     repo = "stopwatchtimer.koplugin",
     --     description = "Stopwatch Timer plugin",
