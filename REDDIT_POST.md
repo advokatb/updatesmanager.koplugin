@@ -79,7 +79,7 @@ If you have a plugin that's not in the default list, you can:
 Want to add your patches or plugins to the default list so all users can access them?
 
 1. Fork the [Updates Manager repository](https://github.com/advokatb/updatesmanager.koplugin)
-2. Add your repository to `config.lua` in the appropriate table (`DEFAULT_PATCH_REPOS` or `DEFAULT_PLUGIN_REPOS`)
+2. Add your repository to `updatesmanager_config.lua` in the appropriate table (`DEFAULT_PATCH_REPOS` or `DEFAULT_PLUGIN_REPOS`)
 3. Create a pull request with a description of your repository
 4. Your PR will be reviewed and merged
 

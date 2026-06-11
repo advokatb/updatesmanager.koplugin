@@ -157,7 +157,7 @@ my-custom-patch
 You can create a pull request to add your repository to the plugin's default repository list. This way, all users will have access to your patches without manual configuration.
 
 1. Fork the Updates Manager plugin repository
-2. Add your repository to `config.lua` in the `DEFAULT_PATCH_REPOS` table
+2. Add your repository to `updatesmanager_config.lua` in the `DEFAULT_PATCH_REPOS` table
 3. Create a pull request with a description of your patches repository
 4. Your PR will be reviewed and merged, making your patches available to all users
 
@@ -284,7 +284,7 @@ return {
 You can create a pull request to add your plugin to the plugin's default repository list. This way, all users will have access to your plugin updates without manual configuration.
 
 1. Fork the Updates Manager plugin repository
-2. Add your plugin repository to `config.lua` in the `DEFAULT_PLUGIN_REPOS` table
+2. Add your plugin repository to `updatesmanager_config.lua` in the `DEFAULT_PLUGIN_REPOS` table
 3. Create a pull request with a description of your plugin
 4. Your PR will be reviewed and merged, making your plugin available to all users
 
