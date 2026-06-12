@@ -362,9 +362,17 @@ Config.DEFAULT_PATCH_REPOS = {
         path = "patches",
         description = "Pocketbook Sync - patches",
     },
+    {
+        owner = "gmacahia",
+        repo = "focus-reading.lua",
+        branch = "main",
+        path = "",
+        description = "Focus Reading patch",
+    }
 }
 
 -- Default list of plugin repositories
+
 -- Each entry may optionally include:
 --   asset_pattern  - glob or Lua pattern for release ZIP (default: *.zip)
 --   preserve_files - array of paths (relative to plugin dir) to keep when updating
@@ -689,7 +697,12 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "ckilb",
         repo = "pocketbooksync.koplugin",
         description = "Pocketbook Sync",
-    }
+    },
+    {
+        owner = "luizcorreia",
+        repo = "metaguiding.koplugin",
+        description = "Meta Guiding plugin",
+    },
     -- {
     --     owner = "markleenders",
     --     repo = "stopwatchtimer.koplugin",
@@ -707,6 +720,23 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Project Title plugin",
     -- },
     -- Commented out repositories (no proper releases)
+    -- {
+    --     owner = "kbarni",
+    --     repo = "frotz.koplugin",
+    --     description = "Interactive Fiction interpreter for Koreader",
+    -- },
+
+
+    -- {
+    --     owner = "Bitboss2",
+    --     repo = "Time-and-day-clock.koplugin",
+    --     description = "Time and day clock plugin",
+    -- },
+    -- {
+    --     owner = "CR0CKER",
+    --     repo = "koreader-app-launcher",
+    --     description = "Launch other Android apps",
+    -- },
     -- {
     --     owner = "yupmoon",
     --     repo = "vocabdeck.koplugin",
@@ -1096,7 +1126,7 @@ function Config.loadGitHubToken()
         Config.createGitHubTokenTemplate()
         return nil
     end
-    
+
     -- Read all lines and find first non-comment, non-empty line
     for line in token_file:lines() do
         -- Trim whitespace
@@ -1107,7 +1137,7 @@ function Config.loadGitHubToken()
             return line
         end
     end
-    
+
     token_file:close()
     return nil
 end
@@ -1118,13 +1148,13 @@ function Config.createGitHubTokenTemplate()
     if lfs.attributes(Config.GITHUB_TOKEN_FILE, "mode") == "file" then
         return
     end
-    
+
     -- Ensure settings directory exists
     local settings_dir = DataStorage:getSettingsDir()
     if lfs.attributes(settings_dir, "mode") ~= "directory" then
         lfs.mkdir(settings_dir)
     end
-    
+
     -- Create template file with instructions
     local template_content = [[# GitHub Personal Access Token Configuration
 # This file is used to store your GitHub Personal Access Token to avoid API rate limits.
@@ -1156,7 +1186,7 @@ function Config.createGitHubTokenTemplate()
 # Paste your token here (remove this comment line):
 
 ]]
-    
+
     local file = io.open(Config.GITHUB_TOKEN_FILE, "w")
     if file then
         file:write(template_content)
