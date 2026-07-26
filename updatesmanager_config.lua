@@ -721,6 +721,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
     -- },
     -- Commented out repositories (no proper releases)
     -- {
+    --     owner = "Shac0x",
+    --     repo = "charactertracker.koplugin",
+    --     description = "Character Tracker plugin",
+    -- },
+    -- {
     --     owner = "kbarni",
     --     repo = "frotz.koplugin",
     --     description = "Interactive Fiction interpreter for Koreader",

@@ -1209,9 +1209,37 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
     local ltn12 = require("ltn12")
     local socketutil = require("socketutil")
     local socket = require("socket")
-    local Device = require("device")
     local Archiver = require("ffi/archiver")
     local Config = require("updatesmanager_config")
+
+    -- Local replacement for Device:unpackArchive (removed in KOReader nightly, Jul 2026).
+    -- with_stripped_root strips the ZIP root folder (e.g. pluginname.koplugin/).
+    local function unpackArchive(archive, extract_to, with_stripped_root)
+        local arc = Archiver.Reader:new()
+        local ok = arc:open(archive)
+        if ok then
+            for entry in arc:iterate() do
+                local dest_path = entry.path
+                if with_stripped_root then
+                    local __, tail = dest_path:match("([^/]*)/*(.*)")
+                    if tail then
+                        dest_path = tail
+                    elseif entry.mode == "directory" then
+                        goto continue
+                    end
+                end
+                if not arc:extractToPath(entry.path, extract_to .. "/" .. dest_path) then
+                    break
+                end
+                ::continue::
+            end
+            ok = not arc.err
+        end
+        if not ok then
+            return false, arc.err or "extract failed"
+        end
+        return true
+    end
 
     -- Inline HTTP functions
     local function downloadFile(url, local_path, headers)
@@ -1480,9 +1508,9 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
             lfs.mkdir(plugins_dir)
         end
 
-        -- Use Device:unpackArchive to extract directly to final location
+        -- Extract ZIP directly to final location
         -- with_stripped_root = true removes the root folder from ZIP (e.g., pluginname.koplugin/)
-        local ok, err = Device:unpackArchive(zip_path, final_path, true)
+        local ok, err = unpackArchive(zip_path, final_path, true)
         if not ok then
             logger.err("UpdatesManager: Failed to extract plugin ZIP:", err)
             removeFile(zip_path)
