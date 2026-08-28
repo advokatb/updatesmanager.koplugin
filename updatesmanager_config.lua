@@ -372,6 +372,13 @@ Config.DEFAULT_PATCH_REPOS = {
 }
 
 -- Default list of plugin repositories
+    {
+        owner = "Caprice-co",
+        repo = "2-calibre-page-estimate",
+        branch = "main",
+        path = "",
+        description = "KOReader user patch that shows a page-count estimate for unopened books - sourced from Calibre's metadata.",
+    },
 
 -- Each entry may optionally include:
 --   asset_pattern  - glob or Lua pattern for release ZIP (default: *.zip)
@@ -720,6 +727,141 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Project Title plugin",
     -- },
     -- Commented out repositories (no proper releases)
+    -- {
+    --     owner = "Lyfts",
+    --     repo = "ShelfSync",
+    --     description = "ShelfSync plugin",
+    -- },
+    -- {
+    --     owner = "nirajkamal",
+    --     repo = "myclippings.koplugin",
+    --     description = "My Clippings for KoReader",
+    -- },
+    {
+        owner = "advokatb",
+        repo = "livelib.koplugin",
+        description = "Livelib plugin",
+    },
+    {
+        owner = "advokatb",
+        repo = "goodreads.koplugin",
+        description = "Goodreads plugin",
+    },
+    -- {
+    --     owner = "code2344",
+    --     repo = "calculator.koplugin",
+    --     description = "A calculator plugin for KOReader",
+    -- },
+    {
+        owner = "Fank1",
+        repo = "foot-cream",
+        description = "Footcream plugin",
+    },
+    -- {
+    --     owner = "DisastrousPatience83",
+    --     repo = "Floating-Dictionary.koplugin",
+    --     description = "Floating Dictionary",
+    -- },
+    {
+        owner = "stevenzamora1",
+        repo = "covercalendar.koplugin",
+        description = "Cover Calendar",
+    },
+    -- {
+    --     owner = "LoShady",
+    --     repo = "DoctorBattery.koplugin",
+    --     description = "A KOReader plugin for battery diagnostics, health analysis and charging status.",
+    -- },
+    {
+        owner = "komadorirobin",
+        repo = "library-sync.koplugin",
+        description = "Library Sync plugin",
+    },
+    {
+        owner = "jbreizh",
+        repo = "quickmenu.koplugin",
+        description = "Quick Menu plugin",
+    },
+    -- {
+    --     owner = "milh0usec",
+    --     repo = "touchlockbuttons.koplugin",
+    --     description = "KOReader plugin for Kindle Paperwhite 4 with an on-screen navigation bar, touch locking and Power button controls.",
+    -- },
+    {
+        owner = "somethingsomethinginternet",
+        repo = "later-thoughts-koreader",
+        description = "Later Thoughts plugin",
+    },
+    -- {
+    --     owner = "codep-alt",
+    --     repo = "bookdrop",
+    --     description = "bookdrop plugin",
+    -- },
+    -- {
+    --     owner = "sabristratos",
+    --     repo = "seekquel-koreader-plugin",
+    --     description = "Seekquel for KOReader",
+    -- },
+    -- {
+    --     owner = "lines-pixel",
+    --     repo = "ReadingCompanion.koplugin-",
+    --     description = "Reading Companion for KOReader",
+    -- },
+    -- {
+    --     owner = "kbarni",
+    --     repo = "minfolio.koplugin",
+    --     description = "A native KOReader live-styled Markdown editor",
+    -- },
+    -- {
+    --     owner = "richbeatty",
+    --     repo = "burrow.koplugin",
+    --     description = "A library-first interface for KOReader with cover browsing, series navigation, OPDS catalogs, and reader controls.",
+    -- },
+    -- {
+    --     owner = "5kxh2dxqmd-afk",
+    --     repo = "kindle-koreader-airplay",
+    --     description = "A plugin so you can show your Apple device's screen on your Kindle.",
+    -- },
+    {
+        owner = "Fank1",
+        repo = "glimpse",
+        description = "Glimpse plugin",
+    },
+    -- {
+    --     owner = "lautaroelkin",
+    --     repo = "koreader-tweaks-lauch",
+    --     description = "Custom Lua patches, and UI tweaks for KOReader on E-ink devices.",
+    -- },
+    {
+        owner = "SeriousHornet",
+        repo = "vos.koplugin",
+        description = "Visual Overhaul Suite (VOS) plugin",
+    },
+    {
+        owner = "kerivin",
+        repo = "stylus-annotations.koplugin",
+        description = "Stylus annotations plugin",
+    },
+    -- {
+    --     owner = "Quad-Plex",
+    --     repo = "komahjong-solitaire",
+    --     description = "Mahjong Solitaire for KOReader",
+    -- },
+    -- {
+    --     owner = "soloipd",
+    --     repo = "koreader-goodreads-native",
+    --     description = "Silent Goodreads shelf and reading-percentage sync for KOReader on jailbroken Kindles.",
+    -- },
+    {
+        owner = "peterboda236",
+        repo = "readinginsights.koplugin",
+        description = "Reading insights plugin",
+    },
+    {
+        owner = "Craftwork2720",
+        repo = "pagenumbercrop.koplugin",
+        description = "Page number crop plugin",
+    },
     -- {
     --     owner = "Shac0x",
     --     repo = "charactertracker.koplugin",
