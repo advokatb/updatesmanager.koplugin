@@ -368,17 +368,17 @@ Config.DEFAULT_PATCH_REPOS = {
         branch = "main",
         path = "",
         description = "Focus Reading patch",
-    }
-}
-
--- Default list of plugin repositories
+    },
     {
         owner = "Caprice-co",
         repo = "2-calibre-page-estimate",
         branch = "main",
         path = "",
         description = "KOReader user patch that shows a page-count estimate for unopened books - sourced from Calibre's metadata.",
-    },
+    }
+}
+
+-- Default list of plugin repositories
 
 -- Each entry may optionally include:
 --   asset_pattern  - glob or Lua pattern for release ZIP (default: *.zip)
