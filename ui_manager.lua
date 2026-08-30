@@ -25,7 +25,7 @@ local VerticalGroup = require("ui/widget/verticalgroup")
 local VerticalSpan = require("ui/widget/verticalspan")
 local Screen = require("device").screen
 local NetworkMgr = require("ui/network/manager")
-local _ = require("updatesmanager_gettext")
+local _ = require("lib/updatesmanager_i18n").gettext
 local T = require("ffi/util").template
 local logger = require("logger")
 
@@ -735,13 +735,13 @@ function UIManager_Updates:showMainMenu(updates_manager)
         {
             text = _("Check for Updates"),
             callback = function()
-                updates_manager:checkForUpdates()
+                updates_manager:checkForUpdates(false)
             end,
         },
         {
-            text = _("View Installed Patches"),
+            text = _("Force Refresh"),
             callback = function()
-                updates_manager:showInstalledPatches()
+                updates_manager:checkForUpdates(true)
             end,
         },
         {

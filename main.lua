@@ -16,7 +16,7 @@ local PatchManager = require("patch_manager")
 local PluginManager = require("plugin_manager")
 local RepositoryManager = require("repository_manager")
 local UIManager_Updates = require("ui_manager")
-local _ = require("updatesmanager_gettext")
+local _ = require("lib/updatesmanager_i18n").gettext
 local T = require("ffi/util").template
 
 -- Cache for GitHub token (loaded once per session)
@@ -32,6 +32,28 @@ local function getGitHubToken()
         cached_token = Config.loadGitHubToken()
     end
     return cached_token
+end
+
+-- Ignored-patch list; defined here so checkForUpdates can call it (Lua locals are not hoisted).
+local function loadIgnoredPatches()
+    local ignored = {}
+    local ignored_file = Config.IGNORED_PATCHES_FILE
+
+    local file = io.open(ignored_file, "r")
+    if file then
+        for line in file:lines() do
+            -- Trim whitespace and skip empty lines and comments
+            line = line:match("^%s*(.-)%s*$")
+            if line and line ~= "" and not line:match("^#") then
+                -- Remove .lua extension if present
+                line = line:gsub("%.lua$", "")
+                ignored[line] = true
+            end
+        end
+        file:close()
+    end
+
+    return ignored
 end
 
 local UpdatesManager = WidgetContainer:extend {
@@ -1624,29 +1646,6 @@ function UpdatesManager:installPluginUpdates(plugin_updates)
 end
 
 -- Check for patch updates only
--- Load list of ignored patches from file
-local function loadIgnoredPatches()
-    local ignored = {}
-    local Config = require("updatesmanager_config")
-    local ignored_file = Config.IGNORED_PATCHES_FILE
-
-    local file = io.open(ignored_file, "r")
-    if file then
-        for line in file:lines() do
-            -- Trim whitespace and skip empty lines and comments
-            line = line:match("^%s*(.-)%s*$")
-            if line and line ~= "" and not line:match("^#") then
-                -- Remove .lua extension if present
-                line = line:gsub("%.lua$", "")
-                ignored[line] = true
-            end
-        end
-        file:close()
-    end
-
-    return ignored
-end
-
 function UpdatesManager:checkForPatchUpdates(force_refresh)
     force_refresh = force_refresh or false
     UIManager_Updates:checkNetwork(function()
@@ -2524,50 +2523,16 @@ function UpdatesManager:addToMainMenu(menu_items)
         sorting_hint = "tools",
         sub_item_table = {
             {
-                text = _("Patches"),
-                sub_item_table = {
-                    {
-                        text = _("Check for Updates"),
-                        callback = function()
-                            self:checkForPatchUpdates(false)
-                        end,
-                    },
-                    {
-                        text = _("Force Refresh (ignore cache)"),
-                        callback = function()
-                            self:checkForPatchUpdates(true)
-                        end,
-                    },
-                    {
-                        text = _("Installed Patches"),
-                        callback = function()
-                            self:showInstalledPatches()
-                        end,
-                    },
-                },
+                text = _("Check for Updates"),
+                callback = function()
+                    self:checkForUpdates(false)
+                end,
             },
             {
-                text = _("Plugins"),
-                sub_item_table = {
-                    {
-                        text = _("Check for Updates"),
-                        callback = function()
-                            self:checkForPluginUpdates(false)
-                        end,
-                    },
-                    {
-                        text = _("Force Refresh"),
-                        callback = function()
-                            self:checkForPluginUpdates(true)
-                        end,
-                    },
-                    {
-                        text = _("Installed Plugins"),
-                        callback = function()
-                            self:showInstalledPlugins()
-                        end,
-                    },
-                },
+                text = _("Force Refresh"),
+                callback = function()
+                    self:checkForUpdates(true)
+                end,
             },
             {
                 text = _("Settings"),
@@ -2576,12 +2541,6 @@ function UpdatesManager:addToMainMenu(menu_items)
                         text = _("Repository Settings"),
                         callback = function()
                             self:showRepositorySettings()
-                        end,
-                    },
-                    {
-                        text = _("Clear Cache"),
-                        callback = function()
-                            self:clearCache()
                         end,
                     },
                 },

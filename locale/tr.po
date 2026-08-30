@@ -1,0 +1,343 @@
+# Turkish translation for updatesmanager.koplugin
+# Copyright (C) 2026
+# This file is distributed under the same license as the updatesmanager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: updatesmanager.koplugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-30 12:00+0000\n"
+"PO-Revision-Date: 2026-08-30 12:00+0300\n"
+"Last-Translator: advokatb <igor.butsky@gmail.com>\n"
+"Language-Team: Turkish\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: _meta.lua:8
+#: main.lua
+#: ui_manager.lua
+msgid "Updates Manager"
+msgstr "Güncelleme Yöneticisi"
+
+#: _meta.lua:9
+msgid "Manage updates for patches and plugins GitHub repositories."
+msgstr "GitHub depolarındaki yama ve eklenti güncellemelerini yönetin."
+
+#: main.lua
+msgid "Cache cleared"
+msgstr "Önbellek temizlendi"
+
+#: main.lua
+msgid "No cache to clear"
+msgstr "Temizlenecek önbellek yok"
+
+#: main.lua
+msgid "Checking for updates..."
+msgstr "Güncellemeler kontrol ediliyor..."
+
+#: main.lua
+msgid "Using cached data..."
+msgstr "Önbellekteki veriler kullanılıyor..."
+
+#: main.lua
+msgid "Scanning repository %1/%2: %3"
+msgstr "Depo taranıyor %1/%2: %3"
+
+#: main.lua
+msgid "Saving cache..."
+msgstr "Önbellek kaydediliyor..."
+
+#: main.lua
+msgid "Checking patch %1/%2: %3"
+msgstr "Yama kontrol ediliyor %1/%2: %3"
+
+#: main.lua
+msgid "Checking complete..."
+msgstr "Kontrol tamamlandı..."
+
+#: main.lua
+msgid "Checking for plugin updates..."
+msgstr "Eklenti güncellemeleri kontrol ediliyor..."
+
+#: main.lua
+msgid "Rate limited by GitHub API. Please try again later or use cached data."
+msgstr "GitHub API sınırı aşıldı. Daha sonra tekrar deneyin veya önbellekteki verileri kullanın."
+
+#: main.lua
+#: ui_manager.lua
+msgid "No updates available"
+msgstr "Kullanılabilir güncelleme yok"
+
+#: main.lua
+msgid "Update check was cancelled"
+msgstr "Güncelleme kontrolü iptal edildi"
+
+#: main.lua
+msgid "Installing updates..."
+msgstr "Güncellemeler yükleniyor..."
+
+#: main.lua
+msgid "Update installation was cancelled"
+msgstr "Güncelleme yüklemesi iptal edildi"
+
+#: main.lua
+msgid "Installing plugin updates..."
+msgstr "Eklenti güncellemeleri yükleniyor..."
+
+#: main.lua
+msgid "Plugin update installation was cancelled"
+msgstr "Eklenti güncellemesi yüklemesi iptal edildi"
+
+#: main.lua
+msgid "Checking for patch updates..."
+msgstr "Yama güncellemeleri kontrol ediliyor..."
+
+#: main.lua
+msgid "No patch updates available"
+msgstr "Kullanılabilir yama güncellemesi yok"
+
+#: main.lua
+msgid "No plugin updates available"
+msgstr "Kullanılabilir eklenti güncellemesi yok"
+
+#: main.lua
+msgid "No plugin repositories configured"
+msgstr "Eklenti deposu yapılandırılmamış"
+
+#: main.lua
+msgid "Checking plugin updates..."
+msgstr "Eklenti güncellemeleri kontrol ediliyor..."
+
+#: main.lua
+msgid "Repository Configuration"
+msgstr "Depo yapılandırması"
+
+#: main.lua
+msgid "Configuration file:"
+msgstr "Yapılandırma dosyası:"
+
+#: main.lua
+msgid ""
+"Custom repositories:\n"
+"Patches: %1\n"
+"Plugins: %2"
+msgstr ""
+"Özel depolar:\n"
+"Yamalar: %1\n"
+"Eklentiler: %2"
+
+#: main.lua
+msgid "File exists but could not be parsed"
+msgstr "Dosya var ancak ayrıştırılamadı"
+
+#: main.lua
+msgid ""
+"No custom configuration file found.\n"
+"Using default repositories."
+msgstr ""
+"Özel yapılandırma dosyası bulunamadı.\n"
+"Varsayılan depolar kullanılıyor."
+
+#: main.lua
+msgid "To add custom repositories, edit the configuration file manually."
+msgstr "Özel depo eklemek için yapılandırma dosyasını elle düzenleyin."
+
+#: main.lua
+msgid "Check for Updates"
+msgstr "Güncellemeleri denetle"
+
+#: main.lua
+msgid "Force Refresh"
+msgstr "Zorla yenile"
+
+#: main.lua
+#: ui_manager.lua
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: main.lua
+#: ui_manager.lua
+msgid "Repository Settings"
+msgstr "Depo ayarları"
+
+#: ui_manager.lua
+msgid "No changelog available for this version."
+msgstr "Bu sürüm için değişiklik günlüğü yok."
+
+#: ui_manager.lua
+msgid "Changelog — %1 (%2)"
+msgstr "Değişiklik günlüğü — %1 (%2)"
+
+#: ui_manager.lua
+msgid "Close"
+msgstr "Kapat"
+
+#: ui_manager.lua
+msgid "No changelog available"
+msgstr "Değişiklik günlüğü yok"
+
+#: ui_manager.lua
+msgid "Unknown plugin"
+msgstr "Bilinmeyen eklenti"
+
+#: ui_manager.lua
+msgid "unknown"
+msgstr "bilinmiyor"
+
+#: ui_manager.lua
+msgid "%1 (by %2)"
+msgstr "%1 (%2 tarafından)"
+
+#: ui_manager.lua
+msgid ""
+"%1 (by %2)\n"
+"   %3 → %4"
+msgstr ""
+"%1 (%2 tarafından)\n"
+"   %3 → %4"
+
+#: ui_manager.lua
+msgid "Available Updates (%1)"
+msgstr "Kullanılabilir güncellemeler (%1)"
+
+#: ui_manager.lua
+msgid "Cancel"
+msgstr "İptal"
+
+#: ui_manager.lua
+msgid "Update Selected"
+msgstr "Seçilenleri güncelle"
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Author: %2\n"
+"Repository: %3\n"
+"Size: %4 bytes"
+msgstr ""
+"Yama: %1\n"
+"\n"
+"Yazar: %2\n"
+"Depo: %3\n"
+"Boyut: %4 bayt"
+
+#: ui_manager.lua
+msgid "Description:"
+msgstr "Açıklama:"
+
+#: ui_manager.lua
+msgid "Repository:"
+msgstr "Depo:"
+
+#: ui_manager.lua
+msgid "Patch Information"
+msgstr "Yama bilgisi"
+
+#: ui_manager.lua
+msgid "Edit Description"
+msgstr "Açıklamayı düzenle"
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Author: %2\n"
+"Current Version: %3\n"
+"New Version: %4\n"
+"Repository: %5"
+msgstr ""
+"Eklenti: %1\n"
+"\n"
+"Yazar: %2\n"
+"Mevcut sürüm: %3\n"
+"Yeni sürüm: %4\n"
+"Depo: %5"
+
+#: ui_manager.lua
+msgid "Release Notes:"
+msgstr "Sürüm notları:"
+
+#: ui_manager.lua
+msgid "Plugin Information"
+msgstr "Eklenti bilgisi"
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Path: %2\n"
+"Size: %3 bytes\n"
+"MD5: %4"
+msgstr ""
+"Yama: %1\n"
+"\n"
+"Yol: %2\n"
+"Boyut: %3 bayt\n"
+"MD5: %4"
+
+#: ui_manager.lua
+msgid "Edit Description: %1"
+msgstr "Açıklamayı düzenle: %1"
+
+#: ui_manager.lua
+msgid "Save"
+msgstr "Kaydet"
+
+#: ui_manager.lua
+msgid "Description saved"
+msgstr "Açıklama kaydedildi"
+
+#: ui_manager.lua
+msgid "Failed to save description"
+msgstr "Açıklama kaydedilemedi"
+
+#: ui_manager.lua
+msgid "Updating %1/%2: %3"
+msgstr "Güncelleniyor %1/%2: %3"
+
+#: ui_manager.lua
+msgid "Successfully updated:"
+msgstr "Başarıyla güncellendi:"
+
+#: ui_manager.lua
+msgid "Failed to update:"
+msgstr "Güncellenemedi:"
+
+#: ui_manager.lua
+msgid "No updates were processed."
+msgstr "Hiçbir güncelleme işlenmedi."
+
+#: ui_manager.lua
+msgid "Update Results"
+msgstr "Güncelleme sonuçları"
+
+#: ui_manager.lua
+msgid "OK"
+msgstr "Tamam"
+
+#: ui_manager.lua
+msgid "Patches have been updated. Restart required."
+msgstr "Yamalar güncellendi. Yeniden başlatma gerekli."
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Version: %2\n"
+"Path: %3"
+msgstr ""
+"Eklenti: %1\n"
+"\n"
+"Sürüm: %2\n"
+"Yol: %3"
+
+#: ui_manager.lua
+msgid "Network connection required. Turn on Wi-Fi?"
+msgstr "Ağ bağlantısı gerekli. Wi-Fi açılsın mı?"
+
+#: ui_manager.lua
+msgid "Turn on Wi-Fi"
+msgstr "Wi-Fi'yi aç"

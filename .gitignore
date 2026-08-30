@@ -4,5 +4,7 @@ progress.txt
 install_results_debug.json
 updatesmanager_ignored_patches.txt
 *.bak
+*.mo
 updatesmanager_repositories.json
 .specstory/*
+/docs

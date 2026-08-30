@@ -1,0 +1,306 @@
+# updatesmanager.koplugin translation template.
+msgid ""
+msgstr ""
+"Project-Id-Version: updatesmanager.koplugin\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: _meta.lua:8
+#: main.lua
+#: ui_manager.lua
+msgid "Updates Manager"
+msgstr ""
+
+#: _meta.lua:9
+msgid "Manage updates for patches and plugins GitHub repositories."
+msgstr ""
+
+#: main.lua
+msgid "Cache cleared"
+msgstr ""
+
+#: main.lua
+msgid "No cache to clear"
+msgstr ""
+
+#: main.lua
+msgid "Checking for updates..."
+msgstr ""
+
+#: main.lua
+msgid "Using cached data..."
+msgstr ""
+
+#: main.lua
+msgid "Scanning repository %1/%2: %3"
+msgstr ""
+
+#: main.lua
+msgid "Saving cache..."
+msgstr ""
+
+#: main.lua
+msgid "Checking patch %1/%2: %3"
+msgstr ""
+
+#: main.lua
+msgid "Checking complete..."
+msgstr ""
+
+#: main.lua
+msgid "Checking for plugin updates..."
+msgstr ""
+
+#: main.lua
+msgid "Rate limited by GitHub API. Please try again later or use cached data."
+msgstr ""
+
+#: main.lua
+#: ui_manager.lua
+msgid "No updates available"
+msgstr ""
+
+#: main.lua
+msgid "Update check was cancelled"
+msgstr ""
+
+#: main.lua
+msgid "Installing updates..."
+msgstr ""
+
+#: main.lua
+msgid "Update installation was cancelled"
+msgstr ""
+
+#: main.lua
+msgid "Installing plugin updates..."
+msgstr ""
+
+#: main.lua
+msgid "Plugin update installation was cancelled"
+msgstr ""
+
+#: main.lua
+msgid "Checking for patch updates..."
+msgstr ""
+
+#: main.lua
+msgid "No patch updates available"
+msgstr ""
+
+#: main.lua
+msgid "No plugin updates available"
+msgstr ""
+
+#: main.lua
+msgid "No plugin repositories configured"
+msgstr ""
+
+#: main.lua
+msgid "Checking plugin updates..."
+msgstr ""
+
+#: main.lua
+msgid "Repository Configuration"
+msgstr ""
+
+#: main.lua
+msgid "Configuration file:"
+msgstr ""
+
+#: main.lua
+msgid ""
+"Custom repositories:\n"
+"Patches: %1\n"
+"Plugins: %2"
+msgstr ""
+
+#: main.lua
+msgid "File exists but could not be parsed"
+msgstr ""
+
+#: main.lua
+msgid ""
+"No custom configuration file found.\n"
+"Using default repositories."
+msgstr ""
+
+#: main.lua
+msgid "To add custom repositories, edit the configuration file manually."
+msgstr ""
+
+#: main.lua
+msgid "Check for Updates"
+msgstr ""
+
+#: main.lua
+msgid "Force Refresh"
+msgstr ""
+
+#: main.lua
+#: ui_manager.lua
+msgid "Settings"
+msgstr ""
+
+#: main.lua
+#: ui_manager.lua
+msgid "Repository Settings"
+msgstr ""
+
+#: ui_manager.lua
+msgid "No changelog available for this version."
+msgstr ""
+
+#: ui_manager.lua
+msgid "Changelog — %1 (%2)"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Close"
+msgstr ""
+
+#: ui_manager.lua
+msgid "No changelog available"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Unknown plugin"
+msgstr ""
+
+#: ui_manager.lua
+msgid "unknown"
+msgstr ""
+
+#: ui_manager.lua
+msgid "%1 (by %2)"
+msgstr ""
+
+#: ui_manager.lua
+msgid ""
+"%1 (by %2)\n"
+"   %3 → %4"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Available Updates (%1)"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Cancel"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Update Selected"
+msgstr ""
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Author: %2\n"
+"Repository: %3\n"
+"Size: %4 bytes"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Description:"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Repository:"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Patch Information"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Edit Description"
+msgstr ""
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Author: %2\n"
+"Current Version: %3\n"
+"New Version: %4\n"
+"Repository: %5"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Release Notes:"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Plugin Information"
+msgstr ""
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Path: %2\n"
+"Size: %3 bytes\n"
+"MD5: %4"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Edit Description: %1"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Save"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Description saved"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Failed to save description"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Updating %1/%2: %3"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Successfully updated:"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Failed to update:"
+msgstr ""
+
+#: ui_manager.lua
+msgid "No updates were processed."
+msgstr ""
+
+#: ui_manager.lua
+msgid "Update Results"
+msgstr ""
+
+#: ui_manager.lua
+msgid "OK"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Patches have been updated. Restart required."
+msgstr ""
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Version: %2\n"
+"Path: %3"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Network connection required. Turn on Wi-Fi?"
+msgstr ""
+
+#: ui_manager.lua
+msgid "Turn on Wi-Fi"
+msgstr ""

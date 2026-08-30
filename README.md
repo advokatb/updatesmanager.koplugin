@@ -40,19 +40,11 @@ Updates Manager is a plugin for KOReader that helps you manage updates for patch
 <a id="menu-structure"></a>
 ### Menu Structure
 
-The plugin menu is organized into three main sections:
+The plugin menu:
 
-- **Patches**: Manage patch updates
-  - Check for Updates
-  - Force Refresh (ignore cache)
-  - Installed Patches
-- **Plugins**: Manage plugin updates
-  - Check for Updates
-  - Force Refresh
-  - Installed Plugins
-- **Settings**: Configuration options
-  - Repository Settings
-  - Clear Cache
+- **Check for Updates**: Scan patch and plugin repositories (uses cache)
+- **Force Refresh**: Same check, ignoring the cache
+- **Settings** → **Repository Settings**: Config file location and custom repository counts
 
 <a id="force-refresh"></a>
 ### Force Refresh
@@ -91,24 +83,16 @@ The plugin menu is organized into three main sections:
 #### Checking for Patch Updates
 
 1. Open KOReader menu
-2. Navigate to **Updates Manager** → **Patches** → **Check for Updates**
-3. The plugin will scan all configured patch repositories for updates
+2. Navigate to **Updates Manager** → **Check for Updates** (or **Force Refresh** to ignore cache)
+3. The plugin will scan all configured patch and plugin repositories
 4. Select which patches you want to update using checkboxes
 5. Long-press on any patch to view detailed information
 6. Click **Update Selected** to install updates
 
-<a id="viewing-installed-patches"></a>
-#### Viewing Installed Patches
-
-1. Navigate to **Updates Manager** → **Patches** → **Installed Patches**
-2. View list of all installed patches with description previews
-3. Tap on a patch to see detailed information
-4. Use **Edit Description** to customize the patch description
-
 <a id="editing-patch-descriptions"></a>
 #### Editing Patch Descriptions
 
-1. View patch details (from update list or installed patches)
+1. Long-press a patch in the update list to view details
 2. Click **Edit Description**
 3. Enter or modify the description
 4. Click **Save**
@@ -205,21 +189,12 @@ Patch descriptions are loaded in the following priority order:
 #### Checking for Plugin Updates
 
 1. Open KOReader menu
-2. Navigate to **Updates Manager** → **Plugins** → **Check for Updates**
-3. The plugin will check all configured plugin repositories for updates
+2. Navigate to **Updates Manager** → **Check for Updates** (or **Force Refresh** to ignore cache)
+3. The plugin will check all configured plugin repositories together with patches
 4. Select which plugins you want to update using checkboxes
 5. Long-press on any plugin to view detailed information (version, release notes)
 6. Tap the small **changelog** label or icon next to a plugin to preview the release notes for that specific version without leaving KOReader
 7. Click **Update Selected** to install updates
-
-<a id="viewing-installed-plugins"></a>
-#### Viewing Installed Plugins
-
-1. Navigate to **Updates Manager** → **Plugins** → **Installed Plugins**
-2. View list of all installed plugins with versions
-3. Tap on a plugin to see detailed information (version, description, path)
-
-**Note**: Default KOReader plugins (like `archiveviewer`, `autodim`, etc.) are hidden from this list as they are updated with KOReader itself.
 
 <a id="plugins-for-authors"></a>
 ### For Plugin Authors
@@ -444,7 +419,7 @@ To add custom repositories, edit the configuration file manually. The plugin wil
 
 - Repository data is cached in `KOReader/settings/updatesmanager_cache/repository_cache.json`
 - Plugin data is cached in `KOReader/settings/updatesmanager_cache/plugin_cache.json`
-- Cache is valid until manually cleared or force refresh is used
+- Cache is valid until Force Refresh is used (about 1 hour otherwise)
 - Cache includes metadata but not full file content (to save space)
 
 <a id="rate-limiting"></a>
@@ -568,6 +543,16 @@ And the following plugin repositories:
 ## Contributing
 
 Contributions are welcome! Please feel free to submit pull requests or open issues.
+
+### Localization
+
+Translations are loaded at runtime from `locale/<lang>.po` — no `.mo` compilation needed.
+
+Shipped languages: Hungarian (`hu`), Polish (`pl`), Russian (`ru`), Turkish (`tr`), Ukrainian (`uk`).
+
+To add a language:
+1. Copy `locale/updatesmanager.pot` to `locale/<lang>.po` (e.g. `locale/de.po`)
+2. Fill in the `msgstr` values
 
 <a id="credits"></a>
 ## Credits

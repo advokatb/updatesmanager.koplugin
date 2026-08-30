@@ -15,17 +15,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      # - name: Install gettext
-      #   run: sudo apt-get update && sudo apt-get install -y gettext
-      
-      # - name: Convert PO files to MO
-      #   run: |
-      #     if [ -f scripts/po2mo.sh ]; then
-      #       chmod +x scripts/po2mo.sh
-      #       bash scripts/po2mo.sh
-      #     else
-      #       echo "scripts/po2mo.sh not found at repo root" && exit 1
-      #     fi
+      - name: Install gettext
+        run: sudo apt-get update && sudo apt-get install -y gettext
+
+      - name: Validate locale PO files
+        run: |
+          if [ -f scripts/po2mo.sh ]; then
+            chmod +x scripts/po2mo.sh
+            bash scripts/po2mo.sh
+          else
+            echo "scripts/po2mo.sh not found at repo root" && exit 1
+          fi
       
       - name: Extract version from tag
         id: version

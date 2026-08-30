@@ -1,0 +1,343 @@
+# Polish translation for updatesmanager.koplugin
+# Copyright (C) 2026
+# This file is distributed under the same license as the updatesmanager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: updatesmanager.koplugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-30 12:00+0000\n"
+"PO-Revision-Date: 2026-08-30 12:00+0300\n"
+"Last-Translator: advokatb <igor.butsky@gmail.com>\n"
+"Language-Team: Polish\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: _meta.lua:8
+#: main.lua
+#: ui_manager.lua
+msgid "Updates Manager"
+msgstr "Menedżer aktualizacji"
+
+#: _meta.lua:9
+msgid "Manage updates for patches and plugins GitHub repositories."
+msgstr "Zarządzaj aktualizacjami łatek i wtyczek z repozytoriów GitHub."
+
+#: main.lua
+msgid "Cache cleared"
+msgstr "Wyczyszczono pamięć podręczną"
+
+#: main.lua
+msgid "No cache to clear"
+msgstr "Brak pamięci podręcznej do wyczyszczenia"
+
+#: main.lua
+msgid "Checking for updates..."
+msgstr "Sprawdzanie aktualizacji..."
+
+#: main.lua
+msgid "Using cached data..."
+msgstr "Używanie danych z pamięci podręcznej..."
+
+#: main.lua
+msgid "Scanning repository %1/%2: %3"
+msgstr "Skanowanie repozytorium %1/%2: %3"
+
+#: main.lua
+msgid "Saving cache..."
+msgstr "Zapisywanie pamięci podręcznej..."
+
+#: main.lua
+msgid "Checking patch %1/%2: %3"
+msgstr "Sprawdzanie łatki %1/%2: %3"
+
+#: main.lua
+msgid "Checking complete..."
+msgstr "Sprawdzanie zakończone..."
+
+#: main.lua
+msgid "Checking for plugin updates..."
+msgstr "Sprawdzanie aktualizacji wtyczek..."
+
+#: main.lua
+msgid "Rate limited by GitHub API. Please try again later or use cached data."
+msgstr "Przekroczono limit GitHub API. Spróbuj ponownie później lub użyj danych z pamięci podręcznej."
+
+#: main.lua
+#: ui_manager.lua
+msgid "No updates available"
+msgstr "Brak dostępnych aktualizacji"
+
+#: main.lua
+msgid "Update check was cancelled"
+msgstr "Sprawdzanie aktualizacji zostało anulowane"
+
+#: main.lua
+msgid "Installing updates..."
+msgstr "Instalowanie aktualizacji..."
+
+#: main.lua
+msgid "Update installation was cancelled"
+msgstr "Instalowanie aktualizacji zostało anulowane"
+
+#: main.lua
+msgid "Installing plugin updates..."
+msgstr "Instalowanie aktualizacji wtyczek..."
+
+#: main.lua
+msgid "Plugin update installation was cancelled"
+msgstr "Instalowanie aktualizacji wtyczek zostało anulowane"
+
+#: main.lua
+msgid "Checking for patch updates..."
+msgstr "Sprawdzanie aktualizacji łatek..."
+
+#: main.lua
+msgid "No patch updates available"
+msgstr "Brak dostępnych aktualizacji łatek"
+
+#: main.lua
+msgid "No plugin updates available"
+msgstr "Brak dostępnych aktualizacji wtyczek"
+
+#: main.lua
+msgid "No plugin repositories configured"
+msgstr "Nie skonfigurowano repozytoriów wtyczek"
+
+#: main.lua
+msgid "Checking plugin updates..."
+msgstr "Sprawdzanie aktualizacji wtyczek..."
+
+#: main.lua
+msgid "Repository Configuration"
+msgstr "Konfiguracja repozytoriów"
+
+#: main.lua
+msgid "Configuration file:"
+msgstr "Plik konfiguracyjny:"
+
+#: main.lua
+msgid ""
+"Custom repositories:\n"
+"Patches: %1\n"
+"Plugins: %2"
+msgstr ""
+"Własne repozytoria:\n"
+"Łatki: %1\n"
+"Wtyczki: %2"
+
+#: main.lua
+msgid "File exists but could not be parsed"
+msgstr "Plik istnieje, ale nie udało się go przetworzyć"
+
+#: main.lua
+msgid ""
+"No custom configuration file found.\n"
+"Using default repositories."
+msgstr ""
+"Nie znaleziono własnego pliku konfiguracyjnego.\n"
+"Używane są repozytoria domyślne."
+
+#: main.lua
+msgid "To add custom repositories, edit the configuration file manually."
+msgstr "Aby dodać własne repozytoria, edytuj plik konfiguracyjny ręcznie."
+
+#: main.lua
+msgid "Check for Updates"
+msgstr "Sprawdź aktualizacje"
+
+#: main.lua
+msgid "Force Refresh"
+msgstr "Wymuś odświeżenie"
+
+#: main.lua
+#: ui_manager.lua
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: main.lua
+#: ui_manager.lua
+msgid "Repository Settings"
+msgstr "Ustawienia repozytoriów"
+
+#: ui_manager.lua
+msgid "No changelog available for this version."
+msgstr "Brak dziennika zmian dla tej wersji."
+
+#: ui_manager.lua
+msgid "Changelog — %1 (%2)"
+msgstr "Dziennik zmian — %1 (%2)"
+
+#: ui_manager.lua
+msgid "Close"
+msgstr "Zamknij"
+
+#: ui_manager.lua
+msgid "No changelog available"
+msgstr "Brak dziennika zmian"
+
+#: ui_manager.lua
+msgid "Unknown plugin"
+msgstr "Nieznana wtyczka"
+
+#: ui_manager.lua
+msgid "unknown"
+msgstr "nieznana"
+
+#: ui_manager.lua
+msgid "%1 (by %2)"
+msgstr "%1 (autor: %2)"
+
+#: ui_manager.lua
+msgid ""
+"%1 (by %2)\n"
+"   %3 → %4"
+msgstr ""
+"%1 (autor: %2)\n"
+"   %3 → %4"
+
+#: ui_manager.lua
+msgid "Available Updates (%1)"
+msgstr "Dostępne aktualizacje (%1)"
+
+#: ui_manager.lua
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: ui_manager.lua
+msgid "Update Selected"
+msgstr "Aktualizuj zaznaczone"
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Author: %2\n"
+"Repository: %3\n"
+"Size: %4 bytes"
+msgstr ""
+"Łatka: %1\n"
+"\n"
+"Autor: %2\n"
+"Repozytorium: %3\n"
+"Rozmiar: %4 bajtów"
+
+#: ui_manager.lua
+msgid "Description:"
+msgstr "Opis:"
+
+#: ui_manager.lua
+msgid "Repository:"
+msgstr "Repozytorium:"
+
+#: ui_manager.lua
+msgid "Patch Information"
+msgstr "Informacje o łatce"
+
+#: ui_manager.lua
+msgid "Edit Description"
+msgstr "Edytuj opis"
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Author: %2\n"
+"Current Version: %3\n"
+"New Version: %4\n"
+"Repository: %5"
+msgstr ""
+"Wtyczka: %1\n"
+"\n"
+"Autor: %2\n"
+"Bieżąca wersja: %3\n"
+"Nowa wersja: %4\n"
+"Repozytorium: %5"
+
+#: ui_manager.lua
+msgid "Release Notes:"
+msgstr "Uwagi do wydania:"
+
+#: ui_manager.lua
+msgid "Plugin Information"
+msgstr "Informacje o wtyczce"
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Path: %2\n"
+"Size: %3 bytes\n"
+"MD5: %4"
+msgstr ""
+"Łatka: %1\n"
+"\n"
+"Ścieżka: %2\n"
+"Rozmiar: %3 bajtów\n"
+"MD5: %4"
+
+#: ui_manager.lua
+msgid "Edit Description: %1"
+msgstr "Edytuj opis: %1"
+
+#: ui_manager.lua
+msgid "Save"
+msgstr "Zapisz"
+
+#: ui_manager.lua
+msgid "Description saved"
+msgstr "Zapisano opis"
+
+#: ui_manager.lua
+msgid "Failed to save description"
+msgstr "Nie udało się zapisać opisu"
+
+#: ui_manager.lua
+msgid "Updating %1/%2: %3"
+msgstr "Aktualizowanie %1/%2: %3"
+
+#: ui_manager.lua
+msgid "Successfully updated:"
+msgstr "Pomyślnie zaktualizowano:"
+
+#: ui_manager.lua
+msgid "Failed to update:"
+msgstr "Nie udało się zaktualizować:"
+
+#: ui_manager.lua
+msgid "No updates were processed."
+msgstr "Nie przetworzono żadnych aktualizacji."
+
+#: ui_manager.lua
+msgid "Update Results"
+msgstr "Wyniki aktualizacji"
+
+#: ui_manager.lua
+msgid "OK"
+msgstr "OK"
+
+#: ui_manager.lua
+msgid "Patches have been updated. Restart required."
+msgstr "Łatki zostały zaktualizowane. Wymagane ponowne uruchomienie."
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Version: %2\n"
+"Path: %3"
+msgstr ""
+"Wtyczka: %1\n"
+"\n"
+"Wersja: %2\n"
+"Ścieżka: %3"
+
+#: ui_manager.lua
+msgid "Network connection required. Turn on Wi-Fi?"
+msgstr "Wymagane połączenie sieciowe. Włączyć Wi-Fi?"
+
+#: ui_manager.lua
+msgid "Turn on Wi-Fi"
+msgstr "Włącz Wi-Fi"

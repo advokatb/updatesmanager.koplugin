@@ -1,0 +1,343 @@
+# Ukrainian translation for updatesmanager.koplugin
+# Copyright (C) 2026
+# This file is distributed under the same license as the updatesmanager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: updatesmanager.koplugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-30 12:00+0000\n"
+"PO-Revision-Date: 2026-08-30 12:00+0300\n"
+"Last-Translator: advokatb <igor.butsky@gmail.com>\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: _meta.lua:8
+#: main.lua
+#: ui_manager.lua
+msgid "Updates Manager"
+msgstr "Менеджер оновлень"
+
+#: _meta.lua:9
+msgid "Manage updates for patches and plugins GitHub repositories."
+msgstr "Керування оновленнями патчів і плагінів із репозиторіїв GitHub."
+
+#: main.lua
+msgid "Cache cleared"
+msgstr "Кеш очищено"
+
+#: main.lua
+msgid "No cache to clear"
+msgstr "Немає кешу для очищення"
+
+#: main.lua
+msgid "Checking for updates..."
+msgstr "Перевірка оновлень..."
+
+#: main.lua
+msgid "Using cached data..."
+msgstr "Використовуються дані з кешу..."
+
+#: main.lua
+msgid "Scanning repository %1/%2: %3"
+msgstr "Сканування репозиторію %1/%2: %3"
+
+#: main.lua
+msgid "Saving cache..."
+msgstr "Збереження кешу..."
+
+#: main.lua
+msgid "Checking patch %1/%2: %3"
+msgstr "Перевірка патча %1/%2: %3"
+
+#: main.lua
+msgid "Checking complete..."
+msgstr "Перевірку завершено..."
+
+#: main.lua
+msgid "Checking for plugin updates..."
+msgstr "Перевірка оновлень плагінів..."
+
+#: main.lua
+msgid "Rate limited by GitHub API. Please try again later or use cached data."
+msgstr "Перевищено ліміт GitHub API. Спробуйте пізніше або використайте дані з кешу."
+
+#: main.lua
+#: ui_manager.lua
+msgid "No updates available"
+msgstr "Немає доступних оновлень"
+
+#: main.lua
+msgid "Update check was cancelled"
+msgstr "Перевірку оновлень скасовано"
+
+#: main.lua
+msgid "Installing updates..."
+msgstr "Встановлення оновлень..."
+
+#: main.lua
+msgid "Update installation was cancelled"
+msgstr "Встановлення оновлень скасовано"
+
+#: main.lua
+msgid "Installing plugin updates..."
+msgstr "Встановлення оновлень плагінів..."
+
+#: main.lua
+msgid "Plugin update installation was cancelled"
+msgstr "Встановлення оновлень плагінів скасовано"
+
+#: main.lua
+msgid "Checking for patch updates..."
+msgstr "Перевірка оновлень патчів..."
+
+#: main.lua
+msgid "No patch updates available"
+msgstr "Немає доступних оновлень патчів"
+
+#: main.lua
+msgid "No plugin updates available"
+msgstr "Немає доступних оновлень плагінів"
+
+#: main.lua
+msgid "No plugin repositories configured"
+msgstr "Репозиторії плагінів не налаштовано"
+
+#: main.lua
+msgid "Checking plugin updates..."
+msgstr "Перевірка оновлень плагінів..."
+
+#: main.lua
+msgid "Repository Configuration"
+msgstr "Конфігурація репозиторіїв"
+
+#: main.lua
+msgid "Configuration file:"
+msgstr "Файл конфігурації:"
+
+#: main.lua
+msgid ""
+"Custom repositories:\n"
+"Patches: %1\n"
+"Plugins: %2"
+msgstr ""
+"Користувацькі репозиторії:\n"
+"Патчі: %1\n"
+"Плагіни: %2"
+
+#: main.lua
+msgid "File exists but could not be parsed"
+msgstr "Файл існує, але його не вдалося розібрати"
+
+#: main.lua
+msgid ""
+"No custom configuration file found.\n"
+"Using default repositories."
+msgstr ""
+"Користувацький файл конфігурації не знайдено.\n"
+"Використовуються репозиторії за замовчуванням."
+
+#: main.lua
+msgid "To add custom repositories, edit the configuration file manually."
+msgstr "Щоб додати власні репозиторії, відредагуйте файл конфігурації вручну."
+
+#: main.lua
+msgid "Check for Updates"
+msgstr "Перевірити оновлення"
+
+#: main.lua
+msgid "Force Refresh"
+msgstr "Примусово оновити"
+
+#: main.lua
+#: ui_manager.lua
+msgid "Settings"
+msgstr "Налаштування"
+
+#: main.lua
+#: ui_manager.lua
+msgid "Repository Settings"
+msgstr "Налаштування репозиторіїв"
+
+#: ui_manager.lua
+msgid "No changelog available for this version."
+msgstr "Список змін для цієї версії недоступний."
+
+#: ui_manager.lua
+msgid "Changelog — %1 (%2)"
+msgstr "Список змін — %1 (%2)"
+
+#: ui_manager.lua
+msgid "Close"
+msgstr "Закрити"
+
+#: ui_manager.lua
+msgid "No changelog available"
+msgstr "Список змін недоступний"
+
+#: ui_manager.lua
+msgid "Unknown plugin"
+msgstr "Невідомий плагін"
+
+#: ui_manager.lua
+msgid "unknown"
+msgstr "невідомо"
+
+#: ui_manager.lua
+msgid "%1 (by %2)"
+msgstr "%1 (автор: %2)"
+
+#: ui_manager.lua
+msgid ""
+"%1 (by %2)\n"
+"   %3 → %4"
+msgstr ""
+"%1 (автор: %2)\n"
+"   %3 → %4"
+
+#: ui_manager.lua
+msgid "Available Updates (%1)"
+msgstr "Доступні оновлення (%1)"
+
+#: ui_manager.lua
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: ui_manager.lua
+msgid "Update Selected"
+msgstr "Оновити вибрані"
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Author: %2\n"
+"Repository: %3\n"
+"Size: %4 bytes"
+msgstr ""
+"Патч: %1\n"
+"\n"
+"Автор: %2\n"
+"Репозиторій: %3\n"
+"Розмір: %4 байт"
+
+#: ui_manager.lua
+msgid "Description:"
+msgstr "Опис:"
+
+#: ui_manager.lua
+msgid "Repository:"
+msgstr "Репозиторій:"
+
+#: ui_manager.lua
+msgid "Patch Information"
+msgstr "Відомості про патч"
+
+#: ui_manager.lua
+msgid "Edit Description"
+msgstr "Змінити опис"
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Author: %2\n"
+"Current Version: %3\n"
+"New Version: %4\n"
+"Repository: %5"
+msgstr ""
+"Плагін: %1\n"
+"\n"
+"Автор: %2\n"
+"Поточна версія: %3\n"
+"Нова версія: %4\n"
+"Репозиторій: %5"
+
+#: ui_manager.lua
+msgid "Release Notes:"
+msgstr "Примітки до випуску:"
+
+#: ui_manager.lua
+msgid "Plugin Information"
+msgstr "Відомості про плагін"
+
+#: ui_manager.lua
+msgid ""
+"Patch: %1\n"
+"\n"
+"Path: %2\n"
+"Size: %3 bytes\n"
+"MD5: %4"
+msgstr ""
+"Патч: %1\n"
+"\n"
+"Шлях: %2\n"
+"Розмір: %3 байт\n"
+"MD5: %4"
+
+#: ui_manager.lua
+msgid "Edit Description: %1"
+msgstr "Змінити опис: %1"
+
+#: ui_manager.lua
+msgid "Save"
+msgstr "Зберегти"
+
+#: ui_manager.lua
+msgid "Description saved"
+msgstr "Опис збережено"
+
+#: ui_manager.lua
+msgid "Failed to save description"
+msgstr "Не вдалося зберегти опис"
+
+#: ui_manager.lua
+msgid "Updating %1/%2: %3"
+msgstr "Оновлення %1/%2: %3"
+
+#: ui_manager.lua
+msgid "Successfully updated:"
+msgstr "Успішно оновлено:"
+
+#: ui_manager.lua
+msgid "Failed to update:"
+msgstr "Не вдалося оновити:"
+
+#: ui_manager.lua
+msgid "No updates were processed."
+msgstr "Оновлення не було оброблено."
+
+#: ui_manager.lua
+msgid "Update Results"
+msgstr "Результати оновлення"
+
+#: ui_manager.lua
+msgid "OK"
+msgstr "OK"
+
+#: ui_manager.lua
+msgid "Patches have been updated. Restart required."
+msgstr "Патчі оновлено. Потрібен перезапуск."
+
+#: ui_manager.lua
+msgid ""
+"Plugin: %1\n"
+"\n"
+"Version: %2\n"
+"Path: %3"
+msgstr ""
+"Плагін: %1\n"
+"\n"
+"Версія: %2\n"
+"Шлях: %3"
+
+#: ui_manager.lua
+msgid "Network connection required. Turn on Wi-Fi?"
+msgstr "Потрібне підключення до мережі. Увімкнути Wi-Fi?"
+
+#: ui_manager.lua
+msgid "Turn on Wi-Fi"
+msgstr "Увімкнути Wi-Fi"
