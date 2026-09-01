@@ -1171,6 +1171,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     repo = "koreader-kosync2.koplugin",
     --     description = "KoSync2 plugin",
     -- },
+    {
+        owner = "afzafri",
+        repo = "charart.koplugin",
+        description = "Character Art plugin",
+    },
 }
 
 -- Paths
