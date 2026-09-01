@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.5.1] - 2026-08-29
+
+### Added
+- Added charart.koplugin to repositories list
+
 ## [1.5.0] - 2026-08-30
 
 ### Added
