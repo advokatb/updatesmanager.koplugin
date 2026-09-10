@@ -341,3 +341,35 @@ msgstr "Ağ bağlantısı gerekli. Wi-Fi açılsın mı?"
 #: ui_manager.lua
 msgid "Turn on Wi-Fi"
 msgstr "Wi-Fi'yi aç"
+
+#: main.lua
+msgid "Check plugin updates in background"
+msgstr "Eklenti güncellemelerini arka planda denetle"
+
+#: main.lua
+msgid "When Wi-Fi is already on, check installed plugins at most once per interval. Patches are not checked in the background. Wi-Fi is never turned on automatically."
+msgstr "Wi-Fi zaten açıksa, yüklü eklentileri seçilen aralıkta en fazla bir kez denetler. Yamalar arka planda denetlenmez. Wi-Fi kendiliğinden açılmaz."
+
+#: main.lua
+msgid "Background check interval"
+msgstr "Arka plan denetim aralığı"
+
+#: main.lua
+msgid "Every 12 hours"
+msgstr "Her 12 saatte bir"
+
+#: main.lua
+msgid "Every 24 hours"
+msgstr "Her 24 saatte bir"
+
+#: background_check.lua
+msgid "Plugin updates available (%1)"
+msgstr "Eklenti güncellemeleri var (%1)"
+
+#: background_check.lua
+msgid "View"
+msgstr "Göster"
+
+#: background_check.lua
+msgid "Later"
+msgstr "Sonra"

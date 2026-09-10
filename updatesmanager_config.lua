@@ -1172,6 +1172,11 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "KoSync2 plugin",
     -- },
     {
+        owner = "farengeyt451",
+        repo = "unitlens.koplugin",
+        description = "Unit Lens plugin",
+    },
+    {
         owner = "afzafri",
         repo = "charart.koplugin",
         description = "Character Art plugin",

@@ -16,6 +16,7 @@ local PatchManager = require("patch_manager")
 local PluginManager = require("plugin_manager")
 local RepositoryManager = require("repository_manager")
 local UIManager_Updates = require("ui_manager")
+local BackgroundCheck = require("background_check")
 local _ = require("lib/updatesmanager_i18n").gettext
 local T = require("ffi/util").template
 
@@ -72,6 +73,11 @@ function UpdatesManager:init()
         self.ui.menu:registerToMainMenu(self)
         self._menu_registered = true
     end
+
+    -- File Manager only: delayed ping after startup if the user opted in.
+    if self.ui and self.ui.file_chooser then
+        BackgroundCheck.ping(self, 5)
+    end
 end
 
 function UpdatesManager:onReaderReady()
@@ -102,6 +108,7 @@ function UpdatesManager:deletePluginSettings()
     end
 
     pcall(ffiUtil.purgeDir, Config.CACHE_DIR)
+    BackgroundCheck.clearSettings()
 end
 
 -- Clear cache
@@ -2466,6 +2473,18 @@ function UpdatesManager:checkForPluginUpdates(force_refresh)
     end)
 end
 
+function UpdatesManager:onResume()
+    BackgroundCheck.ping(self, 3)
+end
+
+function UpdatesManager:onLeaveStandby()
+    BackgroundCheck.ping(self, 3)
+end
+
+function UpdatesManager:onNetworkConnected()
+    BackgroundCheck.ping(self, 1)
+end
+
 -- Show installed patches
 function UpdatesManager:showInstalledPatches()
     local patches = PatchManager.scanLocalPatches()
@@ -2516,6 +2535,64 @@ function UpdatesManager:showRepositorySettings()
     UIManager_Updates:showInfo(info_text, 10)
 end
 
+function UpdatesManager:getSettingsMenuItems()
+    return {
+        {
+            text = _("Repository Settings"),
+            callback = function()
+                self:showRepositorySettings()
+            end,
+        },
+        {
+            text = _("Check plugin updates in background"),
+            help_text = _("When Wi-Fi is already on, check installed plugins at most once per interval. Patches are not checked in the background. Wi-Fi is never turned on automatically."),
+            checked_func = function()
+                return BackgroundCheck.isEnabled()
+            end,
+            callback = function()
+                local enabled = not BackgroundCheck.isEnabled()
+                BackgroundCheck.setEnabled(enabled)
+                if enabled then
+                    BackgroundCheck.ping(self, 2)
+                else
+                    BackgroundCheck.unschedule()
+                end
+            end,
+            keep_menu_open = true,
+        },
+        {
+            text = _("Background check interval"),
+            enabled_func = function()
+                return BackgroundCheck.isEnabled()
+            end,
+            sub_item_table = {
+                {
+                    text = _("Every 12 hours"),
+                    radio = true,
+                    checked_func = function()
+                        return BackgroundCheck.getIntervalHours() == 12
+                    end,
+                    callback = function()
+                        BackgroundCheck.setIntervalHours(12)
+                    end,
+                    keep_menu_open = true,
+                },
+                {
+                    text = _("Every 24 hours"),
+                    radio = true,
+                    checked_func = function()
+                        return BackgroundCheck.getIntervalHours() == 24
+                    end,
+                    callback = function()
+                        BackgroundCheck.setIntervalHours(24)
+                    end,
+                    keep_menu_open = true,
+                },
+            },
+        },
+    }
+end
+
 -- Add to main menu
 function UpdatesManager:addToMainMenu(menu_items)
     menu_items.updates_manager = {
@@ -2536,14 +2613,7 @@ function UpdatesManager:addToMainMenu(menu_items)
             },
             {
                 text = _("Settings"),
-                sub_item_table = {
-                    {
-                        text = _("Repository Settings"),
-                        callback = function()
-                            self:showRepositorySettings()
-                        end,
-                    },
-                },
+                sub_item_table = self:getSettingsMenuItems(),
             },
         },
     }

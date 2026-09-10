@@ -341,3 +341,35 @@ msgstr "Требуется подключение к сети. Включить 
 #: ui_manager.lua
 msgid "Turn on Wi-Fi"
 msgstr "Включить Wi-Fi"
+
+#: main.lua
+msgid "Check plugin updates in background"
+msgstr "Проверять обновления плагинов в фоне"
+
+#: main.lua
+msgid "When Wi-Fi is already on, check installed plugins at most once per interval. Patches are not checked in the background. Wi-Fi is never turned on automatically."
+msgstr "Если Wi-Fi уже включён, проверять установленные плагины не чаще выбранного интервала. Патчи в фоне не проверяются. Wi-Fi сам не включается."
+
+#: main.lua
+msgid "Background check interval"
+msgstr "Интервал фоновой проверки"
+
+#: main.lua
+msgid "Every 12 hours"
+msgstr "Каждые 12 часов"
+
+#: main.lua
+msgid "Every 24 hours"
+msgstr "Каждые 24 часа"
+
+#: background_check.lua
+msgid "Plugin updates available (%1)"
+msgstr "Доступны обновления плагинов (%1)"
+
+#: background_check.lua
+msgid "View"
+msgstr "Показать"
+
+#: background_check.lua
+msgid "Later"
+msgstr "Позже"

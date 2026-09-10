@@ -746,14 +746,7 @@ function UIManager_Updates:showMainMenu(updates_manager)
         },
         {
             text = _("Settings"),
-            sub_item_table = {
-                {
-                    text = _("Repository Settings"),
-                    callback = function()
-                        updates_manager:showRepositorySettings()
-                    end,
-                },
-            },
+            sub_item_table = updates_manager:getSettingsMenuItems(),
         },
     }
     

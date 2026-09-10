@@ -341,3 +341,35 @@ msgstr "Wymagane połączenie sieciowe. Włączyć Wi-Fi?"
 #: ui_manager.lua
 msgid "Turn on Wi-Fi"
 msgstr "Włącz Wi-Fi"
+
+#: main.lua
+msgid "Check plugin updates in background"
+msgstr "Sprawdzaj aktualizacje wtyczek w tle"
+
+#: main.lua
+msgid "When Wi-Fi is already on, check installed plugins at most once per interval. Patches are not checked in the background. Wi-Fi is never turned on automatically."
+msgstr "Gdy Wi-Fi jest już włączone, sprawdzaj zainstalowane wtyczki co najwyżej raz na wybrany interwał. Łatki nie są sprawdzane w tle. Wi-Fi nie jest włączane automatycznie."
+
+#: main.lua
+msgid "Background check interval"
+msgstr "Interwał sprawdzania w tle"
+
+#: main.lua
+msgid "Every 12 hours"
+msgstr "Co 12 godzin"
+
+#: main.lua
+msgid "Every 24 hours"
+msgstr "Co 24 godziny"
+
+#: background_check.lua
+msgid "Plugin updates available (%1)"
+msgstr "Dostępne aktualizacje wtyczek (%1)"
+
+#: background_check.lua
+msgid "View"
+msgstr "Pokaż"
+
+#: background_check.lua
+msgid "Later"
+msgstr "Później"

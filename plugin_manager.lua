@@ -180,133 +180,136 @@ local function matchPluginToRepo(plugin_name, repo_name, installed_plugin)
     return false
 end
 
--- Check for plugin updates
+-- Jobs for installed plugins that match a configured repository (no HTTP).
+function PluginManager.listInstalledCheckJobs(plugin_repos, installed_plugins)
+    local jobs = {}
+    local installed_map = installed_plugins or {}
+
+    for _, repo_config in ipairs(plugin_repos or {}) do
+        for plugin_name, plugin_data in pairs(installed_map) do
+            if matchPluginToRepo(plugin_name, repo_config.repo, plugin_data) then
+                table.insert(jobs, {
+                    repo_config = repo_config,
+                    installed_plugin = plugin_data,
+                    matched_name = plugin_name,
+                })
+                break
+            end
+        end
+    end
+
+    return jobs
+end
+
+-- One GitHub releases/latest request for a single installed plugin.
+-- Returns an update table or nil.
+function PluginManager.checkSingleInstalled(repo_config, installed_plugin, matched_name, httpGet, parseJSON)
+    httpGet = httpGet or function() return nil, 0 end
+    parseJSON = parseJSON or function() return nil end
+
+    local owner = repo_config.owner
+    local repo = repo_config.repo
+    local api_url = string.format("https://api.github.com/repos/%s/%s/releases/latest", owner, repo)
+    local content, code = httpGet(api_url, {
+        ["Accept"] = "application/vnd.github.v3+json",
+    })
+
+    if not content or code ~= 200 then
+        if code ~= 404 then
+            logger.warn("UpdatesManager: Failed to get latest release:", api_url, code)
+        end
+        return nil, false
+    end
+
+    local release_data = parseJSON(content)
+    if not release_data or not release_data.tag_name then
+        return nil, false
+    end
+
+    local release_version = release_data.tag_name:gsub("^v", "")
+    local installed_version = installed_plugin.version or "0.0.0"
+
+    if not PluginManager.isVersionNewer(release_version, installed_version) then
+        return nil, true
+    end
+
+    logger.info("UpdatesManager: Update found for plugin:", matched_name,
+               "installed:", installed_version, "available:", release_version)
+
+    local zip_asset = nil
+    local asset_pattern = repo_config.asset_pattern
+    local lua_pattern = nil
+    if asset_pattern then
+        local ends_with_anchor = asset_pattern:match("%$$")
+        local has_wildcard = asset_pattern:match("%*")
+        local has_escaped_dots = asset_pattern:match("%%.")
+
+        if has_wildcard and not has_escaped_dots then
+            lua_pattern = asset_pattern:gsub("%.", "%%."):gsub("%*", ".*")
+        else
+            lua_pattern = asset_pattern
+        end
+
+        if not ends_with_anchor then
+            lua_pattern = lua_pattern .. "$"
+        end
+    else
+        lua_pattern = "%.zip$"
+    end
+
+    for _, asset in ipairs(release_data.assets or {}) do
+        if asset.name:match(lua_pattern) then
+            zip_asset = asset
+            break
+        end
+    end
+
+    if not zip_asset then
+        local pattern_info = asset_pattern and (" (pattern: " .. asset_pattern .. ")") or ""
+        logger.warn("UpdatesManager: No matching asset found for plugin:", matched_name .. pattern_info)
+        return nil, true
+    end
+
+    return {
+        installed_plugin = installed_plugin,
+        repo_config = repo_config,
+        release = {
+            tag_name = release_data.tag_name,
+            version = release_version,
+            name = release_data.name or release_data.tag_name,
+            body = release_data.body or "",
+            published_at = release_data.published_at,
+            html_url = release_data.html_url,
+            zip_url = zip_asset.browser_download_url,
+            zip_name = zip_asset.name,
+            zip_size = zip_asset.size,
+        },
+    }, true
+end
+
+-- Check for plugin updates (installed plugins only)
 function PluginManager.checkForUpdates(plugin_repos, installed_plugins, httpGet, parseJSON, rateLimit)
     httpGet = httpGet or function() return nil, 0 end
     parseJSON = parseJSON or function() return nil end
     rateLimit = rateLimit or function() end
-    
+
     local updates = {}
-    
-    -- Build mapping of plugin names to installed plugins
-    local installed_map = {}
-    for plugin_name, plugin_data in pairs(installed_plugins or {}) do
-        installed_map[plugin_name] = plugin_data
-    end
-    
-    for _, repo_config in ipairs(plugin_repos) do
-        local owner = repo_config.owner
-        local repo = repo_config.repo
-        
-        -- Find installed plugin that matches this repository
-        local installed_plugin = nil
-        local matched_name = nil
-        
-        for plugin_name, plugin_data in pairs(installed_map) do
-            if matchPluginToRepo(plugin_name, repo, plugin_data) then
-                installed_plugin = plugin_data
-                matched_name = plugin_name
-                break
-            end
-        end
-        
-        -- If no plugin installed, skip (we only check for updates of installed plugins)
-        if not installed_plugin then
-            goto continue
-        end
-        
-        -- Get latest release
+    local jobs = PluginManager.listInstalledCheckJobs(plugin_repos, installed_plugins)
+
+    for _, job in ipairs(jobs) do
         rateLimit()
-        local api_url = string.format("https://api.github.com/repos/%s/%s/releases/latest", owner, repo)
-        local content, code = httpGet(api_url, {
-            ["Accept"] = "application/vnd.github.v3+json",
-        })
-        
-        if not content or code ~= 200 then
-            if code ~= 404 then -- 404 means no releases, which is OK
-                logger.warn("UpdatesManager: Failed to get latest release:", api_url, code)
-            end
-            goto continue
+        local update = PluginManager.checkSingleInstalled(
+            job.repo_config,
+            job.installed_plugin,
+            job.matched_name,
+            httpGet,
+            parseJSON
+        )
+        if update then
+            table.insert(updates, update)
         end
-        
-        local release_data = parseJSON(content)
-        if not release_data then
-            goto continue
-        end
-        
-        -- Extract version from tag_name (remove 'v' prefix if present)
-        local release_version = release_data.tag_name:gsub("^v", "")
-        local installed_version = installed_plugin.version or "0.0.0"
-        
-        -- Compare versions
-        if PluginManager.isVersionNewer(release_version, installed_version) then
-            logger.info("UpdatesManager: Update found for plugin:", matched_name, 
-                       "installed:", installed_version, "available:", release_version)
-            
-            -- Find ZIP asset (with optional pattern matching)
-            local zip_asset = nil
-            local asset_pattern = repo_config.asset_pattern
-            
-            -- Convert glob-style pattern to Lua pattern if needed
-            -- e.g., "*.koplugin.zip" -> ".*%.koplugin%.zip$"
-            local lua_pattern = nil
-            if asset_pattern then
-                -- Check if pattern already ends with $ (Lua pattern anchor)
-                local ends_with_anchor = asset_pattern:match("%$$")
-                
-                -- Check if pattern contains * (glob-style) or already has escaped dots (Lua pattern)
-                local has_wildcard = asset_pattern:match("%*")
-                local has_escaped_dots = asset_pattern:match("%%.")
-                
-                if has_wildcard and not has_escaped_dots then
-                    -- Glob-style pattern: convert * to .* and escape dots
-                    lua_pattern = asset_pattern:gsub("%.", "%%."):gsub("%*", ".*")
-                else
-                    -- Assume it's already a Lua pattern (or literal string)
-                    lua_pattern = asset_pattern
-                end
-                
-                -- Ensure it matches end of string if no $ at the end
-                if not ends_with_anchor then
-                    lua_pattern = lua_pattern .. "$"
-                end
-            else
-                -- Default: match any .zip file
-                lua_pattern = "%.zip$"
-            end
-            
-            for _, asset in ipairs(release_data.assets or {}) do
-                if asset.name:match(lua_pattern) then
-                    zip_asset = asset
-                    break
-                end
-            end
-            
-            if zip_asset then
-                table.insert(updates, {
-                    installed_plugin = installed_plugin,
-                    repo_config = repo_config,
-                    release = {
-                        tag_name = release_data.tag_name,
-                        version = release_version,
-                        name = release_data.name or release_data.tag_name,
-                        body = release_data.body or "",
-                        published_at = release_data.published_at,
-                        html_url = release_data.html_url,
-                        zip_url = zip_asset.browser_download_url,
-                        zip_name = zip_asset.name,
-                        zip_size = zip_asset.size,
-                    },
-                })
-            else
-                local pattern_info = asset_pattern and (" (pattern: " .. asset_pattern .. ")") or ""
-                logger.warn("UpdatesManager: No matching asset found for plugin:", matched_name .. pattern_info)
-            end
-        end
-        
-        ::continue::
     end
-    
+
     return updates
 end
 

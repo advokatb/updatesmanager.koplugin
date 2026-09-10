@@ -341,3 +341,35 @@ msgstr "Hálózati kapcsolat szükséges. Bekapcsolja a Wi-Fi-t?"
 #: ui_manager.lua
 msgid "Turn on Wi-Fi"
 msgstr "Wi-Fi bekapcsolása"
+
+#: main.lua
+msgid "Check plugin updates in background"
+msgstr "Bővítményfrissítések keresése a háttérben"
+
+#: main.lua
+msgid "When Wi-Fi is already on, check installed plugins at most once per interval. Patches are not checked in the background. Wi-Fi is never turned on automatically."
+msgstr "Ha a Wi-Fi már be van kapcsolva, a telepített bővítményeket a választott időközönként ellenőrzi. A javításokat a háttérben nem ellenőrzi. A Wi-Fi-t nem kapcsolja be magától."
+
+#: main.lua
+msgid "Background check interval"
+msgstr "Háttérellenőrzés gyakorisága"
+
+#: main.lua
+msgid "Every 12 hours"
+msgstr "12 óránként"
+
+#: main.lua
+msgid "Every 24 hours"
+msgstr "24 óránként"
+
+#: background_check.lua
+msgid "Plugin updates available (%1)"
+msgstr "Bővítményfrissítések érhetők el (%1)"
+
+#: background_check.lua
+msgid "View"
+msgstr "Megtekintés"
+
+#: background_check.lua
+msgid "Later"
+msgstr "Később"

@@ -21,11 +21,11 @@ Updates Manager is a plugin for KOReader that helps you manage updates for patch
 - **Plugin Version Management**: Automatic version comparison for plugins
 - **Network Management**: Automatic Wi-Fi connection handling
 - **Error Handling**: Graceful handling of network errors and API limits
+- **Background plugin checks**: Opt-in. When Wi-Fi is already on, check installed plugins at most once per 12/24 hours and offer to open the update list. Patches stay manual.
 
 ### 🚧 Future Features
 
 - **Repository Management UI**: Add/remove repositories through the plugin interface
-- **Update Notifications**: Automatic background checks for updates
 
 <a id="installation"></a>
 ## Installation
@@ -45,6 +45,7 @@ The plugin menu:
 - **Check for Updates**: Scan patch and plugin repositories (uses cache)
 - **Force Refresh**: Same check, ignoring the cache
 - **Settings** → **Repository Settings**: Config file location and custom repository counts
+- **Settings** → **Check plugin updates in background**: Opt-in. When Wi-Fi is already on, check installed plugins at most once per interval (12 or 24 hours). Patches are not included; Wi-Fi is never turned on automatically.
 
 <a id="force-refresh"></a>
 ### Force Refresh

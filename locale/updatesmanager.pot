@@ -304,3 +304,35 @@ msgstr ""
 #: ui_manager.lua
 msgid "Turn on Wi-Fi"
 msgstr ""
+
+#: main.lua
+msgid "Check plugin updates in background"
+msgstr ""
+
+#: main.lua
+msgid "When Wi-Fi is already on, check installed plugins at most once per interval. Patches are not checked in the background. Wi-Fi is never turned on automatically."
+msgstr ""
+
+#: main.lua
+msgid "Background check interval"
+msgstr ""
+
+#: main.lua
+msgid "Every 12 hours"
+msgstr ""
+
+#: main.lua
+msgid "Every 24 hours"
+msgstr ""
+
+#: background_check.lua
+msgid "Plugin updates available (%1)"
+msgstr ""
+
+#: background_check.lua
+msgid "View"
+msgstr ""
+
+#: background_check.lua
+msgid "Later"
+msgstr ""
