@@ -728,6 +728,41 @@ Config.DEFAULT_PLUGIN_REPOS = {
     -- },
     -- Commented out repositories (no proper releases)
     -- {
+    --     owner = "gkgangavarapu",
+    --     repo = "goodreadskosync",
+    --     description = "Goodreads Sync for KOReader",
+    -- },
+    -- {
+    --     owner = "trulow",
+    --     repo = "suwayomi.plugin",
+    --     description = "Suwayomi plugin for KOReader",
+    -- },
+    -- {
+    --     owner = "jopidovba-a11y",
+    --     repo = "Charge-Limit-For-Kobo-Clara-BW-Koreader-Plugin",
+    --     description = "Stops battery charging at a configurable percentage on a Kobo Clara BW",
+    -- },
+    -- {
+    --     owner = "mazenoss",
+    --     repo = "safahat.koplugin",
+    --     description = "Koreader plugin to download ebooks directly from Hindawi free library",
+    -- },
+    -- {
+    --     owner = "EmirErtorer",
+    --     repo = "backgammon.koplugin",
+    --     description = "Classic backgammon plugin on KOReader",
+    -- },
+    -- {
+    --     owner = "stormseasons",
+    --     repo = "Inkmate.Koplugin",
+    --     description = "InkMate is a suite of classic board games",
+    -- },
+    -- {
+    --     owner = "1lifedo1thing",
+    --     repo = "koreader-btbattery",
+    --     description = "BT Battery plugin",
+    -- },
+    -- {
     --     owner = "Lyfts",
     --     repo = "ShelfSync",
     --     description = "ShelfSync plugin",
@@ -1180,6 +1215,31 @@ Config.DEFAULT_PLUGIN_REPOS = {
         owner = "afzafri",
         repo = "charart.koplugin",
         description = "Character Art plugin",
+    },
+    {
+        owner = "EmirErtorer",
+        repo = "ink-away.koplugin",
+        description = "Ink Away plugin",
+    },
+    {
+        owner = "jadehawk",
+        repo = "libby-dashboard.koplugin",
+        description = "Libby Dashboard plugin",
+    },
+    {
+        owner = "azac",
+        repo = "tapless.koplugin",
+        description = "Tapless plugin",
+    },
+    {
+        owner = "aknahin",
+        repo = "google-suite-koreader",
+        description = "Google Suite plugin",
+    },
+    {
+        owner = "ultimatejimmy",
+        repo = "storefront.koplugin",
+        description = "Storefront Plugin for KOReader",
     },
 }
 
