@@ -1241,6 +1241,12 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "storefront.koplugin",
         description = "Storefront Plugin for KOReader",
     },
+    {
+        owner = "wroblisko",
+        repo = "homeassistant-koreader-dashboard",
+        asset_pattern = "homedash.koplugin.zip",
+        description = "Home Assistant e-ink dashboard",
+    },
 }
 
 -- Paths
