@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.6.2] - 2026-11-20
+
+### Added
+- Added new plugin repositories
+
 ## [1.6.1] - 2026-09-14
 
 ### Added
