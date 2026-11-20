@@ -375,7 +375,14 @@ Config.DEFAULT_PATCH_REPOS = {
         branch = "main",
         path = "",
         description = "KOReader user patch that shows a page-count estimate for unopened books - sourced from Calibre's metadata.",
-    }
+    },
+    {
+        owner = "BrownTigerz",
+        repo = "-KOReader.patches",
+        branch = "main",
+        path = "",
+        description = "KOReader user patches — 16 Lua patches for Kobo, Kindle & Android: patch backup & restore with on-device updates, network tweaks, reading statistics, diagnostics, and UI tweaks.",
+    },
 }
 
 -- Default list of plugin repositories
@@ -727,6 +734,221 @@ Config.DEFAULT_PLUGIN_REPOS = {
     --     description = "Project Title plugin",
     -- },
     -- Commented out repositories (no proper releases)
+    -- {
+    --     owner = "rmmr111",
+    --     repo = "Capitulares.Koplugin",
+    --     description = "Ornamental drop caps for KOReader • PT-PT / EN",
+    -- },
+    -- {
+    --     owner = "KitanaCode",
+    --     repo = "boardgames.koplugin",
+    --     description = "A 6-in-1, e-ink-friendly board game plugin for KOReader featuring Chess, Checkers, Connect 4, Tic Tac Toe, Minesweeper, and Battleship.",
+    -- },
+    -- {
+    --     owner = "Dukko",
+    --     repo = "xray.koplugin",
+    --     description = "KOReader X-Ray plugin community patch: adds Entity Footnotes (in-text underlines + tap popups for AI-identified characters, locations, historical figures, terms). Fork of ultimatejimmy/xray.koplugin.",
+    -- },
+    -- {
+    --     owner = "tachibana-shin",
+    --     repo = "crop_enhancer.koplugin",
+    --     description = "Replaces KOReader's built-in page auto-crop algorithm with leptonica connected-component analysis. Better at ignoring thin borders, page-edge noise, and scan artifacts that fool the original pixel-counting approach",
+    -- },
+    -- {
+    --     owner = "xZenLabs",
+    --     repo = "zen-pm",
+    --     description = "ZenPM plugin",
+    -- },
+    -- {
+    --     owner = "nraikm",
+    --     repo = "reordermenus.koplugin",
+    --     description = "KOReader plugin to reorder & hide menus",
+    -- },
+    -- {
+    --     owner = "karlb",
+    --     repo = "webdavfetcher.koplugin",
+    --     description = "A KOReader plugin that fetches files from a WebDAV server. Designed for a \"drop files in a folder, they appear on your reader\" workflow.",
+    -- },
+    -- {
+    --     owner = "Saterz",
+    --     repo = "kanisync.koplugin",
+    --     description = "Kanisync plugin",
+    -- },
+    -- {
+    --     owner = "decko",
+    --     repo = "scielo.koplugin",
+    --     description = "KOReader plugin to search and download open access articles from www.scielo.br",
+    -- },
+    -- {
+    --     owner = "mazenoss",
+    --     repo = "swipeunlock.koplugin",
+    --     description = "A KOReader plugin that replaces the plain sleep screen with a \"swipe to open\" slider — the same idea as a phone's lock screen.",
+    -- },
+    -- {
+    --     owner = "CristoSolar",
+    --     repo = "koreader-editorial",
+    --     description = "Editorial-style UI for KOReader's file browser on small e-ink screens (fork of Project: Title)",
+    -- },
+    -- {
+    --     owner = "remy",
+    --     repo = "koreader-hardcover-info-plugin",
+    --     description = "koreader hardcover info plugin plugin",
+    -- },
+    -- {
+    --     owner = "orkunseyman",
+    --     repo = "koplay",
+    --     description = "Spotify on your e-reader: a KOReader plugin to see what's playing, control playback while reading, and browse your library.",
+    -- },
+    -- {
+    --     owner = "ThePixelPro366",
+    --     repo = "bookorbit-dashboard.koplugin",
+    --     description = "The Bookorbit Dashboard but stripped of everything related to Bookorbit ",
+    -- },
+    -- {
+    --     owner = "drkhn1234",
+    --     repo = "tap_to_top.koplugin",
+    --     description = "A unique and efficient way to scroll in KOReader. No more stressing over overscrolling words or cramping your thumb scrolling pages while having to use an ereader with one hand (such as when reading in a bus)",
+    -- },
+    -- {
+    --     owner = "EmirErtorer",
+    --     repo = "CyberUI.koplugin",
+    --     description = "A fast cyberpunk home screen for KOReader: ASCII covers, neon themes, a library browser and KOReader's menu restyled, built for e-ink.",
+    -- },
+    -- {
+    --     owner = "voantony",
+    --     repo = "koreader-library-gui",
+    --     description = "koreader library gui plugin",
+    -- },
+    -- {
+    --     owner = "longelas",
+    --     repo = "modern_menu",
+    --     description = "A Kobo-inspired replacement for KOReader’s stock top menu. Same actions and submenus you already know — clearer layout, larger touch targets, and an e-ink friendly look.",
+    -- },
+    -- {
+    --     owner = "yanllsama",
+    --     repo = "koreader-physical-page-sync",
+    --     description = "A non-destructive KOReader User Patch that synchronizes e-reader page turns with the actual physical pages of a printed book. If you care about reading statistics and tracking the real number of pages you have read, this patch is designed for you!",
+    -- },
+    -- {
+    --     owner = "danihrndzld",
+    --     repo = "kindlemtp.koplugin",
+    --     description = "KOReader plugin: USB file transfer (MTP) on newer Kindles while KOReader runs, without restarting into the stock UI",
+    -- },
+    -- {
+    --     owner = "AnonyMap",
+    --     repo = "kindle-mtp",
+    --     description = "Allows for an MTP file transfer over usb on kindles running koreader.",
+    -- },
+    -- {
+    --     owner = "jopidovba-a11y",
+    --     repo = "kofetch.koplugin",
+    --     description = "Linux/system-monitor-style dashboard for KOReader",
+    -- },
+    -- {
+    --     owner = "Darkgoatie",
+    --     repo = "TachiKindle",
+    --     description = "A Tachiyomi-style manga/comic reader for jailbroken Kindles",
+    -- },
+    -- {
+    --     owner = "myviscariaalc-droid",
+    --     repo = "koreader-print",
+    --     description = "KOReader Print plugin",
+    -- },
+    -- {
+    --     owner = "bvdr",
+    --     repo = "folio-koreader",
+    --     description = "Read your saved articles, newsletters and RSS on Kobo, PocketBook and any KOReader e-reader. Official Folio plugin for KOReader.",
+    -- },
+    -- {
+    --     owner = "hwhw",
+    --     repo = "vnc.koplugin",
+    --     description = "A VNC server as well as a VNC client as a KOReader plugin. Works (supposedly) whereever KOReader works, given network connections are otherwise possible.",
+    -- },
+    -- {
+    --     owner = "apastuszak",
+    --     repo = "coverprogresspocketbook.koplugin",
+    --     description = "KOReader plugin: book cover with reading progress and a sleep screen message on the PocketBook lock screen, including the sleep cover",
+    -- },
+    -- {
+    --     owner = "SahandMalaei",
+    --     repo = "ai-dictionary-koreader",
+    --     description = "Context-aware AI dictionary plugin for KOReader: instant definitions, explanations, deep dives, pronunciation, and vocabulary learning on e-ink devices.",
+    -- },
+    -- {
+    --     owner = "thefoolwholovestheworld",
+    --     repo = "sefirah.koplugin",
+    --     description = "A web novel and manga library for KOReader. Browse, follow and read your favorite stories, and export them as EPUB or CBZ to read offline. No computer needed.",
+    -- },
+    -- {
+    --     owner = "chandujr",
+    --     repo = "wikireader.koplugin",
+    --     description = "WikiReader plugin",
+    -- },
+    -- {
+    --     owner = "0lum0",
+    --     repo = "Reflections.koplugin",
+    --     description = "A KOReader plugin that writes pen and paper discussion questions for every chapter you finish.",
+    -- },
+    -- {
+    --     owner = "stevenzamora1",
+    --     repo = "bookshelf-reading-stats",
+    --     description = "KOReader patch for the Bookshelf plugin that adds a reading stats row to the home screen: pages read today, time read today and your day streak, with an optional version that also shows days and total time spent on the current book.",
+    -- },
+    -- {
+    --     owner = "Termynat0r",
+    --     repo = "segmentedpageturn.koplugin",
+    --     description = "Segmented page turns adds a directional, stepped wipe animation to ordinary page turns in KOReader",
+    -- },
+    -- {
+    --     owner = "Thelaurenhutch",
+    --     repo = "KoReaderCollections_calibretags",
+    --     description = "A KoReader plugin for creating collections from your Calibre tags. ",
+    -- },
+    -- {
+    --     owner = "totokatz",
+    --     repo = "borges.koplugin",
+    --     description = "Borges for your reader. Download the KOReader plugin or Borges firmware for Xteink X4 and connect your library.",
+    -- },
+    -- {
+    --     owner = "poostoon",
+    --     repo = "charcards",
+    --     description = "Картки персонажів plugin",
+    -- },
+    -- {
+    --     owner = "jopidovba-a11y",
+    --     repo = "Paperdots-for-Koreader",
+    --     description = "Paper texture effect for KOReader.",
+    -- },
+    -- {
+    --     owner = "arduinodude456",
+    --     repo = "appdock.koplugin",
+    --     description = "AppDock Homescreen plugin",
+    -- },
+    -- {
+    --     owner = "yanllsama",
+    --     repo = "Neo-QuickSettings-for-KOReader",
+    --     description = "Neo Quick Settings plugin",
+    -- },
+    -- {
+    --     owner = "Endle",
+    --     repo = "readwisereader",
+    --     description = "A Koreader plugin for Readwise Reader",
+    -- },
+    -- {
+    --     owner = "lautaroelkin",
+    --     repo = "page_scrubber.koplugin",
+    --     description = "Page Scrubber plugin",
+    -- },
+    -- {
+    --     owner = "toastiez",
+    --     repo = "pagenotes.koplugin",
+    --     description = "Stickers & Annotations ",
+    -- },
+    -- {
+    --     owner = "gkgangavarapu",
+    --     repo = "koreader-orp-highlighting",
+    --     description = "Highlights the Optimal Recognition Point (ORP) of every word in KOReader.",
+    -- },
     -- {
     --     owner = "gkgangavarapu",
     --     repo = "goodreadskosync",
@@ -1246,6 +1468,101 @@ Config.DEFAULT_PLUGIN_REPOS = {
         repo = "homeassistant-koreader-dashboard",
         asset_pattern = "homedash.koplugin.zip",
         description = "Home Assistant e-ink dashboard",
+   },
+    {
+        owner = "liskin",
+        repo = "units.koplugin",
+        description = "Unit conversion (highlight action) plugin",
+    },
+    {
+        owner = "omer-faruq",
+        repo = "readingstyle.koplugin",
+        description = "Reading style plugin",
+    },
+    {
+        owner = "ultimatejimmy",
+        repo = "backup.koplugin",
+        description = "Device Backup & Restore plugin",
+    },
+    {
+        owner = "Pixxel123",
+        repo = "ligature.koplugin",
+        description = "Ligature plugin",
+    },
+    {
+        owner = "BrownTigerz",
+        repo = "simpleui_readinglog.koplugin",
+        description = "Reading Log for SimpleUI plugin",
+    },
+    {
+        owner = "xconny",
+        repo = "Koreader-Slate-UI",
+        description = "Slate plugin",
+    },
+    {
+        owner = "araponga321",
+        repo = "sleepribbon.koplugin",
+        description = "SleepRibbon plugin",
+    },
+    {
+        owner = "critterforks",
+        repo = "ennUI.koplugin",
+        description = "ennUI plugin",
+    },
+    {
+        owner = "vishnumad",
+        repo = "minimenu.koplugin",
+        description = "MiniMenu plugin",
+    },
+    {
+        owner = "lautaroelkin",
+        repo = "KiKomeScrubber.koplugin",
+        description = "KiKome plugin",
+    },
+    {
+        owner = "ghepting",
+        repo = "shelfspace.koplugin",
+        description = "ShelfSpace plugin",
+    },
+    {
+        owner = "javiclement",
+        repo = "storykore-koplugin",
+        description = "StoryKore Sync plugin",
+    },
+    {
+        owner = "Craftwork2720",
+        repo = "meguru",
+        description = "Meguru plugin",
+    },
+    {
+        owner = "jadehawk",
+        repo = "deluxe-sync.koplugin",
+        description = "Deluxe-Sync plugin",
+    },
+    {
+        owner = "dani84bs",
+        repo = "RemoteLibrary.koplugin",
+        description = "Remote Library plugin",
+    },
+    {
+        owner = "cdrso",
+        repo = "backlog.koplugin",
+        description = "Backlog plugin",
+    },
+    {
+        owner = "d0nizam",
+        repo = "syncery.koplugin",
+        description = "Syncery plugin",
+    },
+    {
+        owner = "JimDBh",
+        repo = "kokomga.koplugin",
+        description = "KOReader Komga client plugin",
+    },
+    {
+        owner = "ultimatejimmy",
+        repo = "xray.koplugin",
+        description = "X-Ray plugin",
     },
 }
 
